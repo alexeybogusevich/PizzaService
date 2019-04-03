@@ -46,14 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormPizzaMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormPizzaMain.Designer.cs">
+      <DependentUpon>FormPizzaMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPizzaOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPizzaOrder.Designer.cs">
+      <DependentUpon>FormPizzaOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormPizzaMain.resx">
+      <DependentUpon>FormPizzaMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPizzaOrder.resx">
+      <DependentUpon>FormPizzaOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaServiceDataEF\PizzaServiceDataEF.csproj">
+      <Project>{392c155d-a6f9-4570-892d-faecf5d8d5fd}</Project>
+      <Name>PizzaServiceDataEF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

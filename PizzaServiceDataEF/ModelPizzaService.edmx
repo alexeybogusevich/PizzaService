@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PizzaServiceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CUSTOMERS">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_NAME" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="C_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_PHONE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="C_EMAIL" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HISTORY_HEADERS">
+          <Key>
+            <PropertyRef Name="HH_ID" />
+          </Key>
+          <Property Name="HH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HH_PAYMENT_TYPE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="HH_TRANSACTION" Type="int" />
+          <Property Name="HH_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HISTORY_LINES">
+          <Key>
+            <PropertyRef Name="HL_ID" />
+          </Key>
+          <Property Name="HL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HL_ORDER_HEADER" Type="int" Nullable="false" />
+          <Property Name="HL_ITEM" Type="int" Nullable="false" />
+          <Property Name="HL_QUANTITY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMAGES">
+          <Key>
+            <PropertyRef Name="IMG_id" />
+          </Key>
+          <Property Name="IMG_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMG_FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IMG_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IMG_ImageData" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ITEMS">
+          <Key>
+            <PropertyRef Name="I_ID" />
+          </Key>
+          <Property Name="I_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="I_NAME" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="I_SIZE" Type="nchar" MaxLength="2" />
+          <Property Name="I_DESCRIPTION" Type="ntext" />
+          <Property Name="I_CATEGORY" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="I_PRICE" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="I_IMAGE" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDER_HEADERS">
+          <Key>
+            <PropertyRef Name="OH_ID" />
+          </Key>
+          <Property Name="OH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OH_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OH_CUSTOMER" Type="int" Nullable="false" />
+          <Property Name="OH_STORE" Type="int" Nullable="false" />
+          <Property Name="OH_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDER_LINES">
+          <Key>
+            <PropertyRef Name="OL_ID" />
+          </Key>
+          <Property Name="OL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OL_ORDER_HEADER" Type="int" Nullable="false" />
+          <Property Name="OL_ITEM" Type="int" Nullable="false" />
+          <Property Name="OL_QUANTITY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORES">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRANSACTIONS">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_RRN" Type="numeric" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="T_DATE" Type="date" Nullable="false" />
+          <Property Name="T_EXPIRE_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HISTORY_HEADERS_TRANSACTIONS">
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="0..1" />
+          <End Role="HISTORY_HEADERS" Type="Self.HISTORY_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTIONS">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_HEADERS">
+              <PropertyRef Name="HH_TRANSACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_LINES_HISTORY_HEADERS">
+          <End Role="HISTORY_HEADERS" Type="Self.HISTORY_HEADERS" Multiplicity="1" />
+          <End Role="HISTORY_LINES" Type="Self.HISTORY_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY_HEADERS">
+              <PropertyRef Name="HH_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_LINES">
+              <PropertyRef Name="HL_ORDER_HEADER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_LINES_ITEMS">
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="1" />
+          <End Role="HISTORY_LINES" Type="Self.HISTORY_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITEMS">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_LINES">
+              <PropertyRef Name="HL_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEMS_IMAGES">
+          <End Role="IMAGES" Type="Self.IMAGES" Multiplicity="0..1" />
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMAGES">
+              <PropertyRef Name="IMG_id" />
+            </Principal>
+            <Dependent Role="ITEMS">
+              <PropertyRef Name="I_IMAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_HEADERS_CUSTOMERS">
+          <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_CUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_HEADERS_STORES">
+          <End Role="STORES" Type="Self.STORES" Multiplicity="1" />
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORES">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_STORE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_LINES_ITEMS">
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITEMS">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="OL_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_LINES_ORDER_HEADERS">
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="OL_ORDER_HEADER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PizzaServiceModelContainer">
+          <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORY_HEADERS" EntityType="Self.HISTORY_HEADERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORY_LINES" EntityType="Self.HISTORY_LINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMAGES" EntityType="Self.IMAGES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ITEMS" EntityType="Self.ITEMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_HEADERS" EntityType="Self.ORDER_HEADERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_LINES" EntityType="Self.ORDER_LINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORES" EntityType="Self.STORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HISTORY_HEADERS_TRANSACTIONS" Association="Self.FK_HISTORY_HEADERS_TRANSACTIONS">
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+            <End Role="HISTORY_HEADERS" EntitySet="HISTORY_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_LINES_HISTORY_HEADERS" Association="Self.FK_HISTORY_LINES_HISTORY_HEADERS">
+            <End Role="HISTORY_HEADERS" EntitySet="HISTORY_HEADERS" />
+            <End Role="HISTORY_LINES" EntitySet="HISTORY_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_LINES_ITEMS" Association="Self.FK_HISTORY_LINES_ITEMS">
+            <End Role="ITEMS" EntitySet="ITEMS" />
+            <End Role="HISTORY_LINES" EntitySet="HISTORY_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEMS_IMAGES" Association="Self.FK_ITEMS_IMAGES">
+            <End Role="IMAGES" EntitySet="IMAGES" />
+            <End Role="ITEMS" EntitySet="ITEMS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_HEADERS_CUSTOMERS" Association="Self.FK_ORDER_HEADERS_CUSTOMERS">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_HEADERS_STORES" Association="Self.FK_ORDER_HEADERS_STORES">
+            <End Role="STORES" EntitySet="STORES" />
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_LINES_ITEMS" Association="Self.FK_ORDER_LINES_ITEMS">
+            <End Role="ITEMS" EntitySet="ITEMS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS" Association="Self.FK_ORDER_LINES_ORDER_HEADERS">
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PizzaServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CUSTOMERS">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="C_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_PHONE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="C_EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="CUSTOMERS" ToRole="ORDER_HEADERS" />
+        </EntityType>
+        <EntityType Name="HISTORY_HEADERS">
+          <Key>
+            <PropertyRef Name="HH_ID" />
+          </Key>
+          <Property Name="HH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HH_PAYMENT_TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HH_TRANSACTION" Type="Int32" />
+          <Property Name="HH_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_HISTORY_HEADERS_TRANSACTIONS" FromRole="HISTORY_HEADERS" ToRole="TRANSACTIONS" />
+          <NavigationProperty Name="HISTORY_LINES" Relationship="Self.FK_HISTORY_LINES_HISTORY_HEADERS" FromRole="HISTORY_HEADERS" ToRole="HISTORY_LINES" />
+        </EntityType>
+        <EntityType Name="HISTORY_LINES">
+          <Key>
+            <PropertyRef Name="HL_ID" />
+          </Key>
+          <Property Name="HL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HL_ORDER_HEADER" Type="Int32" Nullable="false" />
+          <Property Name="HL_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="HL_QUANTITY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HISTORY_HEADERS" Relationship="Self.FK_HISTORY_LINES_HISTORY_HEADERS" FromRole="HISTORY_LINES" ToRole="HISTORY_HEADERS" />
+          <NavigationProperty Name="ITEMS" Relationship="Self.FK_HISTORY_LINES_ITEMS" FromRole="HISTORY_LINES" ToRole="ITEMS" />
+        </EntityType>
+        <EntityType Name="IMAGES">
+          <Key>
+            <PropertyRef Name="IMG_id" />
+          </Key>
+          <Property Name="IMG_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMG_FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMG_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMG_ImageData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="ITEMS" Relationship="Self.FK_ITEMS_IMAGES" FromRole="IMAGES" ToRole="ITEMS" />
+        </EntityType>
+        <EntityType Name="ITEMS">
+          <Key>
+            <PropertyRef Name="I_ID" />
+          </Key>
+          <Property Name="I_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="I_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="I_SIZE" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="I_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="I_CATEGORY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="I_PRICE" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="I_IMAGE" Type="Int32" />
+          <NavigationProperty Name="HISTORY_LINES" Relationship="Self.FK_HISTORY_LINES_ITEMS" FromRole="ITEMS" ToRole="HISTORY_LINES" />
+          <NavigationProperty Name="IMAGES" Relationship="Self.FK_ITEMS_IMAGES" FromRole="ITEMS" ToRole="IMAGES" />
+          <NavigationProperty Name="ORDER_LINES" Relationship="Self.FK_ORDER_LINES_ITEMS" FromRole="ITEMS" ToRole="ORDER_LINES" />
+        </EntityType>
+        <EntityType Name="ORDER_HEADERS">
+          <Key>
+            <PropertyRef Name="OH_ID" />
+          </Key>
+          <Property Name="OH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OH_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OH_CUSTOMER" Type="Int32" Nullable="false" />
+          <Property Name="OH_STORE" Type="Int32" Nullable="false" />
+          <Property Name="OH_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CUSTOMERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="ORDER_HEADERS" ToRole="CUSTOMERS" />
+          <NavigationProperty Name="STORES" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="ORDER_HEADERS" ToRole="STORES" />
+          <NavigationProperty Name="ORDER_LINES" Relationship="Self.FK_ORDER_LINES_ORDER_HEADERS" FromRole="ORDER_HEADERS" ToRole="ORDER_LINES" />
+        </EntityType>
+        <EntityType Name="ORDER_LINES">
+          <Key>
+            <PropertyRef Name="OL_ID" />
+          </Key>
+          <Property Name="OL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OL_ORDER_HEADER" Type="Int32" Nullable="false" />
+          <Property Name="OL_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="OL_QUANTITY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ITEMS" Relationship="Self.FK_ORDER_LINES_ITEMS" FromRole="ORDER_LINES" ToRole="ITEMS" />
+          <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_LINES_ORDER_HEADERS" FromRole="ORDER_LINES" ToRole="ORDER_HEADERS" />
+        </EntityType>
+        <EntityType Name="STORES">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="STORES" ToRole="ORDER_HEADERS" />
+        </EntityType>
+        <EntityType Name="TRANSACTIONS">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_RRN" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="T_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="T_EXPIRE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="HISTORY_HEADERS" Relationship="Self.FK_HISTORY_HEADERS_TRANSACTIONS" FromRole="TRANSACTIONS" ToRole="HISTORY_HEADERS" />
+        </EntityType>
+        <Association Name="FK_ORDER_HEADERS_CUSTOMERS">
+          <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_CUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_HEADERS_TRANSACTIONS">
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="0..1" />
+          <End Role="HISTORY_HEADERS" Type="Self.HISTORY_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTIONS">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_HEADERS">
+              <PropertyRef Name="HH_TRANSACTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_LINES_HISTORY_HEADERS">
+          <End Role="HISTORY_HEADERS" Type="Self.HISTORY_HEADERS" Multiplicity="1" />
+          <End Role="HISTORY_LINES" Type="Self.HISTORY_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY_HEADERS">
+              <PropertyRef Name="HH_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_LINES">
+              <PropertyRef Name="HL_ORDER_HEADER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_LINES_ITEMS">
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="1" />
+          <End Role="HISTORY_LINES" Type="Self.HISTORY_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITEMS">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="HISTORY_LINES">
+              <PropertyRef Name="HL_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEMS_IMAGES">
+          <End Role="IMAGES" Type="Self.IMAGES" Multiplicity="0..1" />
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMAGES">
+              <PropertyRef Name="IMG_id" />
+            </Principal>
+            <Dependent Role="ITEMS">
+              <PropertyRef Name="I_IMAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_LINES_ITEMS">
+          <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITEMS">
+              <PropertyRef Name="I_ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="OL_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_HEADERS_STORES">
+          <End Role="STORES" Type="Self.STORES" Multiplicity="1" />
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORES">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_STORE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_LINES_ORDER_HEADERS">
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="1" />
+          <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="OL_ORDER_HEADER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" />
+          <EntitySet Name="HISTORY_HEADERS" EntityType="Self.HISTORY_HEADERS" />
+          <EntitySet Name="HISTORY_LINES" EntityType="Self.HISTORY_LINES" />
+          <EntitySet Name="IMAGES" EntityType="Self.IMAGES" />
+          <EntitySet Name="ITEMS" EntityType="Self.ITEMS" />
+          <EntitySet Name="ORDER_HEADERS" EntityType="Self.ORDER_HEADERS" />
+          <EntitySet Name="ORDER_LINES" EntityType="Self.ORDER_LINES" />
+          <EntitySet Name="STORES" EntityType="Self.STORES" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" />
+          <AssociationSet Name="FK_ORDER_HEADERS_CUSTOMERS" Association="Self.FK_ORDER_HEADERS_CUSTOMERS">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_HEADERS_TRANSACTIONS" Association="Self.FK_HISTORY_HEADERS_TRANSACTIONS">
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+            <End Role="HISTORY_HEADERS" EntitySet="HISTORY_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_LINES_HISTORY_HEADERS" Association="Self.FK_HISTORY_LINES_HISTORY_HEADERS">
+            <End Role="HISTORY_HEADERS" EntitySet="HISTORY_HEADERS" />
+            <End Role="HISTORY_LINES" EntitySet="HISTORY_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_LINES_ITEMS" Association="Self.FK_HISTORY_LINES_ITEMS">
+            <End Role="ITEMS" EntitySet="ITEMS" />
+            <End Role="HISTORY_LINES" EntitySet="HISTORY_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEMS_IMAGES" Association="Self.FK_ITEMS_IMAGES">
+            <End Role="IMAGES" EntitySet="IMAGES" />
+            <End Role="ITEMS" EntitySet="ITEMS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_LINES_ITEMS" Association="Self.FK_ORDER_LINES_ITEMS">
+            <End Role="ITEMS" EntitySet="ITEMS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_HEADERS_STORES" Association="Self.FK_ORDER_HEADERS_STORES">
+            <End Role="STORES" EntitySet="STORES" />
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS" Association="Self.FK_ORDER_LINES_ORDER_HEADERS">
+            <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
+            <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PizzaServiceModelContainer" CdmEntityContainer="PizzaServiceEntities">
+          <EntitySetMapping Name="CUSTOMERS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.CUSTOMERS">
+              <MappingFragment StoreEntitySet="CUSTOMERS">
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="C_ADDRESS" ColumnName="C_ADDRESS" />
+                <ScalarProperty Name="C_PHONE" ColumnName="C_PHONE" />
+                <ScalarProperty Name="C_EMAIL" ColumnName="C_EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORY_HEADERS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.HISTORY_HEADERS">
+              <MappingFragment StoreEntitySet="HISTORY_HEADERS">
+                <ScalarProperty Name="HH_ID" ColumnName="HH_ID" />
+                <ScalarProperty Name="HH_PAYMENT_TYPE" ColumnName="HH_PAYMENT_TYPE" />
+                <ScalarProperty Name="HH_TRANSACTION" ColumnName="HH_TRANSACTION" />
+                <ScalarProperty Name="HH_DATE" ColumnName="HH_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORY_LINES">
+            <EntityTypeMapping TypeName="PizzaServiceModel.HISTORY_LINES">
+              <MappingFragment StoreEntitySet="HISTORY_LINES">
+                <ScalarProperty Name="HL_ID" ColumnName="HL_ID" />
+                <ScalarProperty Name="HL_ORDER_HEADER" ColumnName="HL_ORDER_HEADER" />
+                <ScalarProperty Name="HL_ITEM" ColumnName="HL_ITEM" />
+                <ScalarProperty Name="HL_QUANTITY" ColumnName="HL_QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMAGES">
+            <EntityTypeMapping TypeName="PizzaServiceModel.IMAGES">
+              <MappingFragment StoreEntitySet="IMAGES">
+                <ScalarProperty Name="IMG_id" ColumnName="IMG_id" />
+                <ScalarProperty Name="IMG_FileName" ColumnName="IMG_FileName" />
+                <ScalarProperty Name="IMG_Title" ColumnName="IMG_Title" />
+                <ScalarProperty Name="IMG_ImageData" ColumnName="IMG_ImageData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITEMS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.ITEMS">
+              <MappingFragment StoreEntitySet="ITEMS">
+                <ScalarProperty Name="I_ID" ColumnName="I_ID" />
+                <ScalarProperty Name="I_NAME" ColumnName="I_NAME" />
+                <ScalarProperty Name="I_SIZE" ColumnName="I_SIZE" />
+                <ScalarProperty Name="I_DESCRIPTION" ColumnName="I_DESCRIPTION" />
+                <ScalarProperty Name="I_CATEGORY" ColumnName="I_CATEGORY" />
+                <ScalarProperty Name="I_PRICE" ColumnName="I_PRICE" />
+                <ScalarProperty Name="I_IMAGE" ColumnName="I_IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_HEADERS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.ORDER_HEADERS">
+              <MappingFragment StoreEntitySet="ORDER_HEADERS">
+                <ScalarProperty Name="OH_ID" ColumnName="OH_ID" />
+                <ScalarProperty Name="OH_ADDRESS" ColumnName="OH_ADDRESS" />
+                <ScalarProperty Name="OH_CUSTOMER" ColumnName="OH_CUSTOMER" />
+                <ScalarProperty Name="OH_STORE" ColumnName="OH_STORE" />
+                <ScalarProperty Name="OH_DATE" ColumnName="OH_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_LINES">
+            <EntityTypeMapping TypeName="PizzaServiceModel.ORDER_LINES">
+              <MappingFragment StoreEntitySet="ORDER_LINES">
+                <ScalarProperty Name="OL_ID" ColumnName="OL_ID" />
+                <ScalarProperty Name="OL_ORDER_HEADER" ColumnName="OL_ORDER_HEADER" />
+                <ScalarProperty Name="OL_ITEM" ColumnName="OL_ITEM" />
+                <ScalarProperty Name="OL_QUANTITY" ColumnName="OL_QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORES">
+            <EntityTypeMapping TypeName="PizzaServiceModel.STORES">
+              <MappingFragment StoreEntitySet="STORES">
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="S_ADDRESS" ColumnName="S_ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTIONS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.TRANSACTIONS">
+              <MappingFragment StoreEntitySet="TRANSACTIONS">
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="T_RRN" ColumnName="T_RRN" />
+                <ScalarProperty Name="T_DATE" ColumnName="T_DATE" />
+                <ScalarProperty Name="T_EXPIRE_DATE" ColumnName="T_EXPIRE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
