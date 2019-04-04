@@ -14,13 +14,15 @@ namespace PizzaServiceEF
 {
     public partial class FormPizzaOrder : Form
     {
+        private List<int> orderLines;
+
         private PizzaServiceDataEF.PizzaServiceEntities ctx;
 
         public FormPizzaOrder()
         {
             InitializeComponent();
             ctx = new PizzaServiceDataEF.PizzaServiceEntities();
-            //iTEMSBindingSourcePizza.DataSource = ctx.ITEMS.Local.ToBindingList();
+            orderLines = new List<int>();
 
             InitializePizza();
         }
@@ -63,9 +65,21 @@ namespace PizzaServiceEF
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string pizzaName = dataGridViewPizza.CurrentRow.Cells["iNAMEDataGridViewTextBoxColumn"].Value.ToString();
-            FormPizzaAdd formPizzaAdd = new FormPizzaAdd(pizzaName);
+            FormPizzaAdd formPizzaAdd = new FormPizzaAdd(pizzaName, orderLines);
             formPizzaAdd.ShowDialog(this);
             formPizzaAdd.Dispose();
+        }
+
+        private void buttonCart_Click(object sender, EventArgs e)
+        {
+            FormCart cart = new FormCart(orderLines);
+            cart.ShowDialog(this);
+            cart.Dispose();
+        }
+
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

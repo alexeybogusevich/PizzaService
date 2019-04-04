@@ -110,9 +110,12 @@
             this.iMAGESDataGridViewTextBoxColumn,
             this.oRDERLINESDataGridViewTextBoxColumn});
             this.dataGridViewPizza.DataSource = this.iTEMSBindingSourcePizza;
+            this.dataGridViewPizza.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(160)))));
             this.dataGridViewPizza.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewPizza.Name = "dataGridViewPizza";
             this.dataGridViewPizza.ReadOnly = true;
+            this.dataGridViewPizza.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewPizza.RowHeadersVisible = false;
             this.dataGridViewPizza.RowHeadersWidth = 40;
             this.dataGridViewPizza.RowTemplate.Height = 40;
             this.dataGridViewPizza.Size = new System.Drawing.Size(723, 377);
@@ -159,6 +162,7 @@
             this.buttonCart.TabIndex = 1;
             this.buttonCart.Text = "Кошик";
             this.buttonCart.UseVisualStyleBackColor = false;
+            this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // buttonOrder
             // 
@@ -172,6 +176,7 @@
             this.buttonOrder.TabIndex = 2;
             this.buttonOrder.Text = "Замовити";
             this.buttonOrder.UseVisualStyleBackColor = false;
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
             // buttonMain
             // 
@@ -249,7 +254,7 @@
             this.iDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
             this.iDESCRIPTIONDataGridViewTextBoxColumn.Name = "iDESCRIPTIONDataGridViewTextBoxColumn";
             this.iDESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.Width = 400;
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.Width = 440;
             // 
             // iCATEGORYDataGridViewTextBoxColumn
             // 

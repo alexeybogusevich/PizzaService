@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище PizzaServiceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище PizzaServiceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CUSTOMERS">
           <Key>
             <PropertyRef Name="C_ID" />
@@ -47,7 +47,7 @@
             <PropertyRef Name="I_ID" />
           </Key>
           <Property Name="I_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="I_NAME" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="I_NAME" Type="nchar" MaxLength="70" Nullable="false" />
           <Property Name="I_SIZE" Type="nchar" MaxLength="2" />
           <Property Name="I_DESCRIPTION" Type="ntext" />
           <Property Name="I_CATEGORY" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -69,7 +69,7 @@
             <PropertyRef Name="OL_ID" />
           </Key>
           <Property Name="OL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OL_ORDER_HEADER" Type="int" Nullable="false" />
+          <Property Name="OL_ORDER_HEADER" Type="int" />
           <Property Name="OL_ITEM" Type="int" Nullable="false" />
           <Property Name="OL_QUANTITY" Type="int" Nullable="false" />
         </EntityType>
@@ -79,6 +79,7 @@
           </Key>
           <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="S_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="S_CITY" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="TRANSACTIONS">
           <Key>
@@ -173,8 +174,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ORDER_LINES_ORDER_HEADERS">
-          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="1" />
+        <Association Name="FK_ORDER_LINES_ORDER_HEADERS1">
+          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="0..1" />
           <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ORDER_HEADERS">
@@ -223,13 +224,12 @@
             <End Role="ITEMS" EntitySet="ITEMS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
           </AssociationSet>
-          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS" Association="Self.FK_ORDER_LINES_ORDER_HEADERS">
+          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS1" Association="Self.FK_ORDER_LINES_ORDER_HEADERS1">
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PizzaServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -281,7 +281,7 @@
             <PropertyRef Name="I_ID" />
           </Key>
           <Property Name="I_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="I_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="I_NAME" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="I_SIZE" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="I_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="I_CATEGORY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
@@ -302,18 +302,18 @@
           <Property Name="OH_DATE" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="CUSTOMERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="ORDER_HEADERS" ToRole="CUSTOMERS" />
           <NavigationProperty Name="STORES" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="ORDER_HEADERS" ToRole="STORES" />
-          <NavigationProperty Name="ORDER_LINES" Relationship="Self.FK_ORDER_LINES_ORDER_HEADERS" FromRole="ORDER_HEADERS" ToRole="ORDER_LINES" />
+          <NavigationProperty Name="ORDER_LINES" Relationship="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1" FromRole="ORDER_HEADERS" ToRole="ORDER_LINES" />
         </EntityType>
         <EntityType Name="ORDER_LINES">
           <Key>
             <PropertyRef Name="OL_ID" />
           </Key>
           <Property Name="OL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OL_ORDER_HEADER" Type="Int32" Nullable="false" />
+          <Property Name="OL_ORDER_HEADER" Type="Int32" />
           <Property Name="OL_ITEM" Type="Int32" Nullable="false" />
           <Property Name="OL_QUANTITY" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ITEMS" Relationship="Self.FK_ORDER_LINES_ITEMS" FromRole="ORDER_LINES" ToRole="ITEMS" />
-          <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_LINES_ORDER_HEADERS" FromRole="ORDER_LINES" ToRole="ORDER_HEADERS" />
+          <NavigationProperty Name="ORDER_HEADERS" Relationship="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1" FromRole="ORDER_LINES" ToRole="ORDER_HEADERS" />
         </EntityType>
         <EntityType Name="STORES">
           <Key>
@@ -322,6 +322,7 @@
           <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="S_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="STORES" ToRole="ORDER_HEADERS" />
+          <Property Name="S_CITY" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="TRANSACTIONS">
           <Key>
@@ -417,18 +418,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ORDER_LINES_ORDER_HEADERS">
-          <End Role="ORDER_HEADERS" Type="Self.ORDER_HEADERS" Multiplicity="1" />
-          <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ORDER_HEADERS">
-              <PropertyRef Name="OH_ID" />
-            </Principal>
-            <Dependent Role="ORDER_LINES">
-              <PropertyRef Name="OL_ORDER_HEADER" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="PizzaServiceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" />
           <EntitySet Name="HISTORY_HEADERS" EntityType="Self.HISTORY_HEADERS" />
@@ -467,11 +456,23 @@
             <End Role="STORES" EntitySet="STORES" />
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
           </AssociationSet>
-          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS" Association="Self.FK_ORDER_LINES_ORDER_HEADERS">
+          <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS1" Association="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1">
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
           </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_ORDER_LINES_ORDER_HEADERS1">
+          <End Type="PizzaServiceModel.ORDER_HEADERS" Role="ORDER_HEADERS" Multiplicity="0..1" />
+          <End Type="PizzaServiceModel.ORDER_LINES" Role="ORDER_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_HEADERS">
+              <PropertyRef Name="OH_ID" />
+            </Principal>
+            <Dependent Role="ORDER_LINES">
+              <PropertyRef Name="OL_ORDER_HEADER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -556,6 +557,7 @@
           <EntitySetMapping Name="STORES">
             <EntityTypeMapping TypeName="PizzaServiceModel.STORES">
               <MappingFragment StoreEntitySet="STORES">
+                <ScalarProperty Name="S_CITY" ColumnName="S_CITY" />
                 <ScalarProperty Name="S_ID" ColumnName="S_ID" />
                 <ScalarProperty Name="S_ADDRESS" ColumnName="S_ADDRESS" />
               </MappingFragment>

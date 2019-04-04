@@ -15,7 +15,7 @@ namespace PizzaServiceDataEF
     public partial class ORDER_LINES
     {
         public int OL_ID { get; set; }
-        public int OL_ORDER_HEADER { get; set; }
+        public Nullable<int> OL_ORDER_HEADER { get; set; }
         public int OL_ITEM { get; set; }
         public int OL_QUANTITY { get; set; }
     

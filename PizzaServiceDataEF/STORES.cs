@@ -22,6 +22,7 @@ namespace PizzaServiceDataEF
     
         public int S_ID { get; set; }
         public string S_ADDRESS { get; set; }
+        public string S_CITY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_HEADERS> ORDER_HEADERS { get; set; }

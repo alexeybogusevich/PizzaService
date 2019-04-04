@@ -16,6 +16,7 @@ namespace PizzaServiceEF
     {
         private string pizza;
         private int quantity = 1;
+        private List<int> orderLines;
         private PizzaServiceDataEF.PizzaServiceEntities ctx;
 
         public FormPizzaAdd()
@@ -23,12 +24,13 @@ namespace PizzaServiceEF
             InitializeComponent();
         }
 
-        public FormPizzaAdd(string pizzaName)
+        public FormPizzaAdd(string pizzaName, List<int> orders)
         {
             InitializeComponent();
             pizza = pizzaName;
             ctx = new PizzaServiceDataEF.PizzaServiceEntities();
             this.Text = pizza;
+            orderLines = orders;
 
             var query = (from i in ctx.ITEMS
                          where (i.I_NAME == pizza)
@@ -45,9 +47,29 @@ namespace PizzaServiceEF
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int id = 0;
+
+            if (ctx.ORDER_LINES.Count() != 0)
+            {
+                id = (from o in ctx.ORDER_LINES
+                      select o.OL_ID).Max() + 1;
+            }
+
+            var line = new ORDER_LINES
+            {
+                OL_ID = id,
+                OL_ITEM = (int)dataGridViewSizes.CurrentRow.Cells["iIDDataGridViewTextBoxColumn"].Value,
+                OL_QUANTITY = quantity
+            };
+
+            ctx.ORDER_LINES.Add(line);
+            ctx.SaveChanges();
+
+            orderLines.Add(id);
 
             this.Close();
         }
+
 
         private void buttonPlus_Click(object sender, EventArgs e)
         {

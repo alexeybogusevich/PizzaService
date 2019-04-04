@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCart.Designer.cs">
+      <DependentUpon>FormCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPizzaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCart.resx">
+      <DependentUpon>FormCart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPizzaAdd.resx">
       <DependentUpon>FormPizzaAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +102,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ITEMS.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_LINES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
