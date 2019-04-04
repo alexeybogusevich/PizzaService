@@ -41,9 +41,9 @@
             this.buttonOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonOrder.ForeColor = System.Drawing.Color.White;
-            this.buttonOrder.Location = new System.Drawing.Point(-1, 155);
+            this.buttonOrder.Location = new System.Drawing.Point(-2, 155);
             this.buttonOrder.Name = "buttonOrder";
-            this.buttonOrder.Size = new System.Drawing.Size(263, 56);
+            this.buttonOrder.Size = new System.Drawing.Size(264, 56);
             this.buttonOrder.TabIndex = 0;
             this.buttonOrder.Text = "Зробити замовлення";
             this.buttonOrder.UseVisualStyleBackColor = false;

@@ -20,8 +20,9 @@ namespace PizzaServiceEF
         private void buttonOrder_Click(object sender, EventArgs e)
         {
             FormPizzaOrder order = new FormPizzaOrder();
+            this.Visible = false;
             order.ShowDialog(this);
-            this.Close();
+            this.Visible = true;
         }
     }
 }
