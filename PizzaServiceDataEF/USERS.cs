@@ -12,22 +12,20 @@ namespace PizzaServiceDataEF
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMERS
+    public partial class USERS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMERS()
+        public USERS()
         {
-            this.ORDER_HEADERS = new HashSet<ORDER_HEADERS>();
+            this.CUSTOMERS = new HashSet<CUSTOMERS>();
         }
     
-        public int C_ID { get; set; }
-        public string C_NAME { get; set; }
-        public decimal C_PHONE { get; set; }
-        public string C_EMAIL { get; set; }
-        public Nullable<int> C_USERID { get; set; }
+        public int U_ID { get; set; }
+        public string U_LOGIN { get; set; }
+        public string U_PASSWORD { get; set; }
+        public string U_MODIFIER { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER_HEADERS> ORDER_HEADERS { get; set; }
-        public virtual USERS USERS { get; set; }
+        public virtual ICollection<CUSTOMERS> CUSTOMERS { get; set; }
     }
 }

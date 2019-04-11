@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{392C155D-A6F9-4570-892D-FAECF5D8D5FD}</ProjectGuid>
+    <ProjectGuid>{519C1752-3A17-4D80-B83B-4E6C8EAC32D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PizzaServiceDataEF</RootNamespace>
-    <AssemblyName>PizzaServiceDataEF</AssemblyName>
+    <RootNamespace>UsersDataEF</RootNamespace>
+    <AssemblyName>UsersDataEF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,76 +52,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="CUSTOMERS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HISTORY_HEADERS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HISTORY_LINES.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IMAGES.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITEMS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelPizzaService.Context.cs">
+    <Compile Include="ModelUsers.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPizzaService.Context.tt</DependentUpon>
+      <DependentUpon>ModelUsers.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPizzaService.cs">
+    <Compile Include="ModelUsers.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
+      <DependentUpon>ModelUsers.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPizzaService.Designer.cs">
+    <Compile Include="ModelUsers.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPizzaService.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ORDER_HEADERS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ORDER_LINES.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STORES.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TRANSACTIONS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
-    </Compile>
     <Compile Include="USERS.cs">
-      <DependentUpon>ModelPizzaService.tt</DependentUpon>
+      <DependentUpon>ModelUsers.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="ModelPizzaService.edmx">
+    <EntityDeploy Include="ModelUsers.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelPizzaService.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelUsers.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="ModelPizzaService.edmx.diagram">
-      <DependentUpon>ModelPizzaService.edmx</DependentUpon>
+    <None Include="ModelUsers.edmx.diagram">
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelPizzaService.Context.tt">
+    <Content Include="ModelUsers.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelPizzaService.Context.cs</LastGenOutput>
-      <DependentUpon>ModelPizzaService.edmx</DependentUpon>
+      <LastGenOutput>ModelUsers.Context.cs</LastGenOutput>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
     </Content>
-    <Content Include="ModelPizzaService.tt">
+    <Content Include="ModelUsers.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelPizzaService.edmx</DependentUpon>
-      <LastGenOutput>ModelPizzaService.cs</LastGenOutput>
+      <DependentUpon>ModelUsers.edmx</DependentUpon>
+      <LastGenOutput>ModelUsers.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

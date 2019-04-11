@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PizzaServiceDataEF
+namespace UsersDataEF
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PizzaServiceEntities : DbContext
+    public partial class UsersEntities : DbContext
     {
-        public PizzaServiceEntities()
-            : base("name=PizzaServiceEntities")
+        public UsersEntities()
+            : base("name=UsersEntities")
         {
         }
     
@@ -25,15 +25,6 @@ namespace PizzaServiceDataEF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CUSTOMERS> CUSTOMERS { get; set; }
-        public virtual DbSet<HISTORY_HEADERS> HISTORY_HEADERS { get; set; }
-        public virtual DbSet<HISTORY_LINES> HISTORY_LINES { get; set; }
-        public virtual DbSet<IMAGES> IMAGES { get; set; }
-        public virtual DbSet<ITEMS> ITEMS { get; set; }
-        public virtual DbSet<ORDER_HEADERS> ORDER_HEADERS { get; set; }
-        public virtual DbSet<ORDER_LINES> ORDER_LINES { get; set; }
-        public virtual DbSet<STORES> STORES { get; set; }
-        public virtual DbSet<TRANSACTIONS> TRANSACTIONS { get; set; }
         public virtual DbSet<USERS> USERS { get; set; }
     }
 }

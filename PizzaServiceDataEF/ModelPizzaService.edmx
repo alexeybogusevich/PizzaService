@@ -11,9 +11,9 @@
           </Key>
           <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="C_NAME" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="C_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="C_PHONE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="C_EMAIL" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="C_USERID" Type="int" />
         </EntityType>
         <EntityType Name="HISTORY_HEADERS">
           <Key>
@@ -90,6 +90,27 @@
           <Property Name="T_DATE" Type="date" Nullable="false" />
           <Property Name="T_EXPIRE_DATE" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="U_LOGIN" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="U_PASSWORD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_MODIFIER" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CUSTOMERS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMERS">
+              <PropertyRef Name="C_USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HISTORY_HEADERS_TRANSACTIONS">
           <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="0..1" />
           <End Role="HISTORY_HEADERS" Type="Self.HISTORY_HEADERS" Multiplicity="*" />
@@ -196,6 +217,11 @@
           <EntitySet Name="ORDER_LINES" EntityType="Self.ORDER_LINES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STORES" EntityType="Self.STORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CUSTOMERS_USERS" Association="Self.FK_CUSTOMERS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+          </AssociationSet>
           <AssociationSet Name="FK_HISTORY_HEADERS_TRANSACTIONS" Association="Self.FK_HISTORY_HEADERS_TRANSACTIONS">
             <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
             <End Role="HISTORY_HEADERS" EntitySet="HISTORY_HEADERS" />
@@ -239,10 +265,11 @@
           </Key>
           <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="C_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="C_PHONE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="C_EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="CUSTOMERS" ToRole="ORDER_HEADERS" />
+          <Property Name="C_USERID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="PizzaServiceModel.FK_CUSTOMERS_USERS" FromRole="CUSTOMERS" ToRole="USERS" />
         </EntityType>
         <EntityType Name="HISTORY_HEADERS">
           <Key>
@@ -460,6 +487,11 @@
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
           </AssociationSet>
+          <EntitySet Name="USERS" EntityType="PizzaServiceModel.USERS" />
+          <AssociationSet Name="FK_CUSTOMERS_USERS" Association="PizzaServiceModel.FK_CUSTOMERS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_ORDER_LINES_ORDER_HEADERS1">
           <End Type="PizzaServiceModel.ORDER_HEADERS" Role="ORDER_HEADERS" Multiplicity="0..1" />
@@ -473,6 +505,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="U_LOGIN" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="U_PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="U_MODIFIER" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CUSTOMERS" Relationship="PizzaServiceModel.FK_CUSTOMERS_USERS" FromRole="USERS" ToRole="CUSTOMERS" />
+        </EntityType>
+        <Association Name="FK_CUSTOMERS_USERS">
+          <End Type="PizzaServiceModel.USERS" Role="USERS" Multiplicity="0..1" />
+          <End Type="PizzaServiceModel.CUSTOMERS" Role="CUSTOMERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMERS">
+              <PropertyRef Name="C_USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -482,9 +536,9 @@
           <EntitySetMapping Name="CUSTOMERS">
             <EntityTypeMapping TypeName="PizzaServiceModel.CUSTOMERS">
               <MappingFragment StoreEntitySet="CUSTOMERS">
+                <ScalarProperty Name="C_USERID" ColumnName="C_USERID" />
                 <ScalarProperty Name="C_ID" ColumnName="C_ID" />
                 <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
-                <ScalarProperty Name="C_ADDRESS" ColumnName="C_ADDRESS" />
                 <ScalarProperty Name="C_PHONE" ColumnName="C_PHONE" />
                 <ScalarProperty Name="C_EMAIL" ColumnName="C_EMAIL" />
               </MappingFragment>
@@ -570,6 +624,16 @@
                 <ScalarProperty Name="T_RRN" ColumnName="T_RRN" />
                 <ScalarProperty Name="T_DATE" ColumnName="T_DATE" />
                 <ScalarProperty Name="T_EXPIRE_DATE" ColumnName="T_EXPIRE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="U_MODIFIER" ColumnName="U_MODIFIER" />
+                <ScalarProperty Name="U_PASSWORD" ColumnName="U_PASSWORD" />
+                <ScalarProperty Name="U_LOGIN" ColumnName="U_LOGIN" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
