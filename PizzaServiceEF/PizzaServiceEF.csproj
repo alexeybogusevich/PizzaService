@@ -53,11 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddImages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddImages.Designer.cs">
+      <DependentUpon>AddImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemAdd.Designer.cs">
+      <DependentUpon>FormItemAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCart.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCart.Designer.cs">
       <DependentUpon>FormCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderHeader.Designer.cs">
+      <DependentUpon>FormOrderHeader.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPizzaAdd.cs">
       <SubType>Form</SubType>
@@ -77,10 +95,21 @@
     <Compile Include="FormPizzaOrder.Designer.cs">
       <DependentUpon>FormPizzaOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Image.cs" />
+    <Compile Include="ImagesLoad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddImages.resx">
+      <DependentUpon>AddImages.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemAdd.resx">
+      <DependentUpon>FormItemAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderHeader.resx">
+      <DependentUpon>FormOrderHeader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPizzaAdd.resx">
       <DependentUpon>FormPizzaAdd.cs</DependentUpon>

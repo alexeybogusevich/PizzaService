@@ -24,5 +24,6 @@ namespace PizzaServiceEF
             order.ShowDialog(this);
             this.Visible = true;
         }
+
     }
 }

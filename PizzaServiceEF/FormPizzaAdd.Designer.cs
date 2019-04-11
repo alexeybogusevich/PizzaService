@@ -29,14 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewSizes = new System.Windows.Forms.DataGridView();
             this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonAdd = new System.Windows.Forms.Button();
             this.labelPrice = new System.Windows.Forms.Label();
+            this.labelQuantity = new System.Windows.Forms.Label();
+            this.buttonPlus = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.iIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iSIZEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,9 +50,6 @@
             this.hISTORYLINESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iMAGESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERLINESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelQuantity = new System.Windows.Forms.Label();
-            this.buttonPlus = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSizes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,14 +62,14 @@
             this.dataGridViewSizes.AllowUserToResizeRows = false;
             this.dataGridViewSizes.AutoGenerateColumns = false;
             this.dataGridViewSizes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSizes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSizes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSizes.ColumnHeadersHeight = 29;
             this.dataGridViewSizes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewSizes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,15 +84,17 @@
             this.iMAGESDataGridViewTextBoxColumn,
             this.oRDERLINESDataGridViewTextBoxColumn});
             this.dataGridViewSizes.DataSource = this.iTEMSBindingSource;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(6)))), ((int)(((byte)(1)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSizes.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(6)))), ((int)(((byte)(1)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSizes.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewSizes.GridColor = System.Drawing.Color.White;
             this.dataGridViewSizes.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewSizes.MultiSelect = false;
             this.dataGridViewSizes.Name = "dataGridViewSizes";
             this.dataGridViewSizes.ReadOnly = true;
             this.dataGridViewSizes.RowHeadersVisible = false;
@@ -126,18 +128,56 @@
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPrice.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPrice.Location = new System.Drawing.Point(248, 107);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(0, 22);
             this.labelPrice.TabIndex = 2;
             // 
+            // labelQuantity
+            // 
+            this.labelQuantity.AutoSize = true;
+            this.labelQuantity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelQuantity.Location = new System.Drawing.Point(300, 249);
+            this.labelQuantity.Name = "labelQuantity";
+            this.labelQuantity.Size = new System.Drawing.Size(18, 19);
+            this.labelQuantity.TabIndex = 3;
+            this.labelQuantity.Text = "1";
+            // 
+            // buttonPlus
+            // 
+            this.buttonPlus.FlatAppearance.BorderSize = 0;
+            this.buttonPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPlus.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonPlus.Location = new System.Drawing.Point(324, 245);
+            this.buttonPlus.Name = "buttonPlus";
+            this.buttonPlus.Size = new System.Drawing.Size(23, 23);
+            this.buttonPlus.TabIndex = 4;
+            this.buttonPlus.Text = "+";
+            this.buttonPlus.UseVisualStyleBackColor = true;
+            this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(272, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "-";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // iIDDataGridViewTextBoxColumn
             // 
             this.iIDDataGridViewTextBoxColumn.DataPropertyName = "I_ID";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(6)))), ((int)(((byte)(1)))));
-            this.iIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(6)))), ((int)(((byte)(1)))));
+            this.iIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.iIDDataGridViewTextBoxColumn.HeaderText = "I_ID";
             this.iIDDataGridViewTextBoxColumn.Name = "iIDDataGridViewTextBoxColumn";
             this.iIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -154,10 +194,10 @@
             // iSIZEDataGridViewTextBoxColumn
             // 
             this.iSIZEDataGridViewTextBoxColumn.DataPropertyName = "I_SIZE";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(160)))));
-            this.iSIZEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iSIZEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.iSIZEDataGridViewTextBoxColumn.HeaderText = "Розмір";
             this.iSIZEDataGridViewTextBoxColumn.Name = "iSIZEDataGridViewTextBoxColumn";
             this.iSIZEDataGridViewTextBoxColumn.ReadOnly = true;
@@ -220,44 +260,6 @@
             this.oRDERLINESDataGridViewTextBoxColumn.ReadOnly = true;
             this.oRDERLINESDataGridViewTextBoxColumn.Visible = false;
             // 
-            // labelQuantity
-            // 
-            this.labelQuantity.AutoSize = true;
-            this.labelQuantity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelQuantity.Location = new System.Drawing.Point(300, 249);
-            this.labelQuantity.Name = "labelQuantity";
-            this.labelQuantity.Size = new System.Drawing.Size(18, 19);
-            this.labelQuantity.TabIndex = 3;
-            this.labelQuantity.Text = "1";
-            // 
-            // buttonPlus
-            // 
-            this.buttonPlus.FlatAppearance.BorderSize = 0;
-            this.buttonPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlus.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonPlus.Location = new System.Drawing.Point(324, 245);
-            this.buttonPlus.Name = "buttonPlus";
-            this.buttonPlus.Size = new System.Drawing.Size(23, 23);
-            this.buttonPlus.TabIndex = 4;
-            this.buttonPlus.Text = "+";
-            this.buttonPlus.UseVisualStyleBackColor = true;
-            this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(272, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "-";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // FormPizzaAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +275,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FormPizzaAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Додати";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSizes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).EndInit();
@@ -287,6 +290,9 @@
         private System.Windows.Forms.BindingSource iTEMSBindingSource;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Label labelQuantity;
+        private System.Windows.Forms.Button buttonPlus;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iSIZEDataGridViewTextBoxColumn;
@@ -297,8 +303,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hISTORYLINESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iMAGESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oRDERLINESDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label labelQuantity;
-        private System.Windows.Forms.Button buttonPlus;
-        private System.Windows.Forms.Button button1;
     }
 }
