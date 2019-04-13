@@ -53,7 +53,6 @@ namespace PizzaServiceEF
 
             if(query.First().U_PASSWORD.Equals(password))
             {
-                MessageBox.Show("Успіх!");
                 user_id = query.First().U_ID;
                 authorized = true;
                 this.Close();

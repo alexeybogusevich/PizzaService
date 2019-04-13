@@ -60,6 +60,18 @@
       <DependentUpon>AddImages.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlSorter.cs" />
+    <Compile Include="FormActiveOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActiveOrders.Designer.cs">
+      <DependentUpon>FormActiveOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormActiveOrdersSelected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActiveOrdersSelected.Designer.cs">
+      <DependentUpon>FormActiveOrdersSelected.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAuthorizarion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     <EmbeddedResource Include="AddImages.resx">
       <DependentUpon>AddImages.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormActiveOrders.resx">
+      <DependentUpon>FormActiveOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormActiveOrdersSelected.resx">
+      <DependentUpon>FormActiveOrdersSelected.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAuthorizarion.resx">
       <DependentUpon>FormAuthorizarion.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,7 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.HISTORY_LINES.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ITEMS.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_HEADERS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_LINES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

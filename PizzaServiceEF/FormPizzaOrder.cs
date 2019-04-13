@@ -26,7 +26,7 @@ namespace PizzaServiceEF
             ctx = new PizzaServiceDataEF.PizzaServiceEntities();
             orderLines = new List<int>();
             user_id = user;
-
+            
             InitializePizza();
         }
 

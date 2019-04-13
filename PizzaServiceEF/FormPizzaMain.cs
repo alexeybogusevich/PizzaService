@@ -15,6 +15,7 @@ namespace PizzaServiceEF
         private bool authorized = false;
         private bool admin = false;
         private int user_id;
+        private string user_name;
         private PizzaServiceDataEF.PizzaServiceEntities ctx;
 
         public FormPizzaService()
@@ -51,15 +52,12 @@ namespace PizzaServiceEF
 
         private void CustomizePage()
         {
+            buttonEnter.Visible = false;
+            buttonExit.Visible = true;
+
             var query = (from u in ctx.USERS
                          where u.U_ID == user_id
                          select u).First();
-
-            var customer = (from c in ctx.CUSTOMERS
-                            where c.C_USERID == user_id
-                            select c).First();
-
-            MessageBox.Show("Вітаємо, " + customer.C_NAME + "!");
 
             if(query.U_MODIFIER == "A")
             {
@@ -68,13 +66,22 @@ namespace PizzaServiceEF
             }
             else
             {
+                var customer = (from c in ctx.CUSTOMERS
+                                where c.C_USERID == user_id
+                                select c).First();
+
+                user_name = customer.C_NAME;
+
+                MessageBox.Show("Вітаємо, " + user_name.Trim() + "!");
+
                 UserMode();
             }
         }
 
         private void UserMode()
         {
-            throw new NotImplementedException();
+            menuStripMain.Visible = true;
+            userNameToolStripMenuItem.Text = user_name;
         }
 
         private void AdminMode()
@@ -83,7 +90,33 @@ namespace PizzaServiceEF
             buttonOrder.Visible = false;
             buttonRestaurants.Visible = false;
             buttonAdmin.Visible = true;
-            throw new NotImplementedException();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void активніЗамовленняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormActiveOrders activeOrders = new FormActiveOrders(user_id);
+            activeOrders.ShowDialog(this);
+            activeOrders.Dispose();
+        }
+
+        private void історіяЗамовленьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void userNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            userNameToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void menuStripMain_MenuDeactivate(object sender, EventArgs e)
+        {
+            userNameToolStripMenuItem.ForeColor = Color.White;
         }
     }
 }
