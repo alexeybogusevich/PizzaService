@@ -18,12 +18,14 @@ namespace PizzaServiceEF
         private List<int> orderLines;
         private PizzaServiceDataEF.PizzaServiceEntities ctx;
         private bool finished = false;
+        private int user_id;
 
-        public FormPizzaOrder()
+        public FormPizzaOrder(int user)
         {
             InitializeComponent();
             ctx = new PizzaServiceDataEF.PizzaServiceEntities();
             orderLines = new List<int>();
+            user_id = user;
 
             InitializePizza();
         }

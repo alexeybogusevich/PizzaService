@@ -11,7 +11,7 @@
           </Key>
           <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="C_NAME" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="C_PHONE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="C_PHONE" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="C_EMAIL" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="C_USERID" Type="int" />
         </EntityType>
@@ -265,7 +265,7 @@
           </Key>
           <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="C_PHONE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="C_PHONE" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="C_EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="CUSTOMERS" ToRole="ORDER_HEADERS" />
           <Property Name="C_USERID" Type="Int32" />

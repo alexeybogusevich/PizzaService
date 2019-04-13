@@ -32,7 +32,8 @@
             this.buttonOrder = new System.Windows.Forms.Button();
             this.buttonRestaurants = new System.Windows.Forms.Button();
             this.buttonComment = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonEnter = new System.Windows.Forms.Button();
+            this.buttonAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonOrder
@@ -75,18 +76,32 @@
             this.buttonComment.Text = "Залишити відгук";
             this.buttonComment.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // buttonEnter
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(128)))), ((int)(((byte)(191)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(683, 337);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(263, 56);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Увійти";
-            this.button5.UseVisualStyleBackColor = false;
+            this.buttonEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(128)))), ((int)(((byte)(191)))));
+            this.buttonEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEnter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonEnter.ForeColor = System.Drawing.Color.White;
+            this.buttonEnter.Location = new System.Drawing.Point(683, 337);
+            this.buttonEnter.Name = "buttonEnter";
+            this.buttonEnter.Size = new System.Drawing.Size(263, 56);
+            this.buttonEnter.TabIndex = 4;
+            this.buttonEnter.Text = "Увійти";
+            this.buttonEnter.UseVisualStyleBackColor = false;
+            this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
+            // 
+            // buttonAdmin
+            // 
+            this.buttonAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(38)))), ((int)(((byte)(187)))));
+            this.buttonAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonAdmin.Location = new System.Drawing.Point(-1, 337);
+            this.buttonAdmin.Name = "buttonAdmin";
+            this.buttonAdmin.Size = new System.Drawing.Size(263, 56);
+            this.buttonAdmin.TabIndex = 5;
+            this.buttonAdmin.Text = "Керування";
+            this.buttonAdmin.UseVisualStyleBackColor = false;
             // 
             // FormPizzaService
             // 
@@ -94,7 +109,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(944, 501);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.buttonAdmin);
+            this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.buttonComment);
             this.Controls.Add(this.buttonRestaurants);
             this.Controls.Add(this.buttonOrder);
@@ -112,7 +128,8 @@
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Button buttonRestaurants;
         private System.Windows.Forms.Button buttonComment;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonEnter;
+        private System.Windows.Forms.Button buttonAdmin;
     }
 }
 

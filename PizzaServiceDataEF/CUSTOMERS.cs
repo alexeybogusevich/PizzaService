@@ -22,7 +22,7 @@ namespace PizzaServiceDataEF
     
         public int C_ID { get; set; }
         public string C_NAME { get; set; }
-        public decimal C_PHONE { get; set; }
+        public string C_PHONE { get; set; }
         public string C_EMAIL { get; set; }
         public Nullable<int> C_USERID { get; set; }
     

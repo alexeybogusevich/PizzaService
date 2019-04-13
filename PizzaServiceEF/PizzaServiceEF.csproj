@@ -59,6 +59,13 @@
     <Compile Include="AddImages.Designer.cs">
       <DependentUpon>AddImages.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlSorter.cs" />
+    <Compile Include="FormAuthorizarion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuthorizarion.Designer.cs">
+      <DependentUpon>FormAuthorizarion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormItemAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,12 +102,21 @@
     <Compile Include="FormPizzaOrder.Designer.cs">
       <DependentUpon>FormPizzaOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image.cs" />
     <Compile Include="ImagesLoad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddImages.resx">
       <DependentUpon>AddImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuthorizarion.resx">
+      <DependentUpon>FormAuthorizarion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
@@ -119,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPizzaOrder.resx">
       <DependentUpon>FormPizzaOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
