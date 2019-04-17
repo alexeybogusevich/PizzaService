@@ -109,6 +109,7 @@
             this.buttonAdmin.Text = "Керування";
             this.buttonAdmin.UseVisualStyleBackColor = false;
             this.buttonAdmin.Visible = false;
+            this.buttonAdmin.Click += new System.EventHandler(this.buttonAdmin_Click);
             // 
             // buttonExit
             // 

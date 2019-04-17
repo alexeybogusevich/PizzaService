@@ -49,17 +49,9 @@ namespace PizzaServiceEF
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            int id = 0;
-
-            if (ctx.ORDER_LINES.Count() != 0)
-            {
-                id = (from o in ctx.ORDER_LINES
-                      select o.OL_ID).Max() + 1;
-            }
 
             var line = new ORDER_LINES
             {
-                OL_ID = id,
                 OL_ITEM = item_id,
                 OL_QUANTITY = quantity
             };
@@ -67,7 +59,7 @@ namespace PizzaServiceEF
             ctx.ORDER_LINES.Add(line);
             ctx.SaveChanges();
 
-            orderLines.Add(id);
+            orderLines.Add(line.OL_ID);
 
             this.Close();
         }

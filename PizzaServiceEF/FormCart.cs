@@ -84,16 +84,7 @@ namespace PizzaServiceEF
 
         private void dataGridViewCart_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            //e.ThrowException = false;
-            //if (e.Exception.Message == "Недопустимое значение DataGridViewComboBoxCell.")
-            //{
-            //    object value = dataGridViewCart.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            //    if (!((DataGridViewComboBoxColumn)dataGridViewCart.Columns[e.ColumnIndex]).Items.Contains(value))
-            //    {
-            //        ((DataGridViewComboBoxColumn)dataGridViewCart.Columns[e.ColumnIndex]).Items.Add(value);
-            //        e.ThrowException = false;
-            //    }
-            //}
+            //
         }
     }
 }

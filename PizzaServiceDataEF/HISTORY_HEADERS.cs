@@ -24,6 +24,7 @@ namespace PizzaServiceDataEF
         public string HH_PAYMENT_TYPE { get; set; }
         public Nullable<int> HH_TRANSACTION { get; set; }
         public System.DateTime HH_DATE { get; set; }
+        public Nullable<int> HH_CUSTOMER { get; set; }
     
         public virtual TRANSACTIONS TRANSACTIONS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

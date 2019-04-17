@@ -94,7 +94,34 @@ namespace PizzaServiceEF
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            //
+            string message = "Вийти з системи?";
+            string caption = "Увага";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                // Closes the parent form.
+                return;
+            }
+            else
+            {
+                DeCustomizePage();
+            }
+        }
+
+        private void DeCustomizePage()
+        {
+            menuStripMain.Visible = false;
+            buttonComment.Visible = true;
+            buttonOrder.Visible = true;
+            buttonRestaurants.Visible = true;
+            buttonAdmin.Visible = false;
+            buttonEnter.Visible = true;
+            buttonExit.Visible = false;
+            authorized = false;
         }
 
         private void активніЗамовленняToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,7 +133,9 @@ namespace PizzaServiceEF
 
         private void історіяЗамовленьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //
+            FormHistoryOrders historyOrders = new FormHistoryOrders(user_id);
+            historyOrders.ShowDialog(this);
+            historyOrders.Dispose();
         }
 
         private void userNameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +146,13 @@ namespace PizzaServiceEF
         private void menuStripMain_MenuDeactivate(object sender, EventArgs e)
         {
             userNameToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void buttonAdmin_Click(object sender, EventArgs e)
+        {
+            FormAdministration administration = new FormAdministration();
+            administration.ShowDialog(this);
+            administration.Dispose();
         }
     }
 }

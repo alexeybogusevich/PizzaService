@@ -22,7 +22,8 @@
           <Property Name="HH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HH_PAYMENT_TYPE" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="HH_TRANSACTION" Type="int" />
-          <Property Name="HH_DATE" Type="date" Nullable="false" />
+          <Property Name="HH_DATE" Type="datetime" Nullable="false" />
+          <Property Name="HH_CUSTOMER" Type="int" />
         </EntityType>
         <EntityType Name="HISTORY_LINES">
           <Key>
@@ -279,9 +280,10 @@
           <Property Name="HH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HH_PAYMENT_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HH_TRANSACTION" Type="Int32" />
-          <Property Name="HH_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HH_DATE" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_HISTORY_HEADERS_TRANSACTIONS" FromRole="HISTORY_HEADERS" ToRole="TRANSACTIONS" />
           <NavigationProperty Name="HISTORY_LINES" Relationship="Self.FK_HISTORY_LINES_HISTORY_HEADERS" FromRole="HISTORY_HEADERS" ToRole="HISTORY_LINES" />
+          <Property Name="HH_CUSTOMER" Type="Int32" />
         </EntityType>
         <EntityType Name="HISTORY_LINES">
           <Key>
@@ -549,6 +551,7 @@
           <EntitySetMapping Name="HISTORY_HEADERS">
             <EntityTypeMapping TypeName="PizzaServiceModel.HISTORY_HEADERS">
               <MappingFragment StoreEntitySet="HISTORY_HEADERS">
+                <ScalarProperty Name="HH_CUSTOMER" ColumnName="HH_CUSTOMER" />
                 <ScalarProperty Name="HH_ID" ColumnName="HH_ID" />
                 <ScalarProperty Name="HH_PAYMENT_TYPE" ColumnName="HH_PAYMENT_TYPE" />
                 <ScalarProperty Name="HH_TRANSACTION" ColumnName="HH_TRANSACTION" />

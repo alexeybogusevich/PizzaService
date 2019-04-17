@@ -72,11 +72,47 @@
     <Compile Include="FormActiveOrdersSelected.Designer.cs">
       <DependentUpon>FormActiveOrdersSelected.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddItem.Designer.cs">
+      <DependentUpon>FormAddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddRestaurant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddRestaurant.Designer.cs">
+      <DependentUpon>FormAddRestaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdministration.Designer.cs">
+      <DependentUpon>FormAdministration.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAuthorizarion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAuthorizarion.Designer.cs">
       <DependentUpon>FormAuthorizarion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryLinesAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryLinesAdmin.Designer.cs">
+      <DependentUpon>FormHistoryLinesAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryOrders.Designer.cs">
+      <DependentUpon>FormHistoryOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryOrderSelected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryOrderSelected.Designer.cs">
+      <DependentUpon>FormHistoryOrderSelected.cs</DependentUpon>
     </Compile>
     <Compile Include="FormItemAdd.cs">
       <SubType>Form</SubType>
@@ -89,6 +125,12 @@
     </Compile>
     <Compile Include="FormCart.Designer.cs">
       <DependentUpon>FormCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemImage.Designer.cs">
+      <DependentUpon>FormItemImage.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOrderHeader.cs">
       <SubType>Form</SubType>
@@ -139,14 +181,35 @@
     <EmbeddedResource Include="FormActiveOrdersSelected.resx">
       <DependentUpon>FormActiveOrdersSelected.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddItem.resx">
+      <DependentUpon>FormAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddRestaurant.resx">
+      <DependentUpon>FormAddRestaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdministration.resx">
+      <DependentUpon>FormAdministration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAuthorizarion.resx">
       <DependentUpon>FormAuthorizarion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryLinesAdmin.resx">
+      <DependentUpon>FormHistoryLinesAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryOrders.resx">
+      <DependentUpon>FormHistoryOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistoryOrderSelected.resx">
+      <DependentUpon>FormHistoryOrderSelected.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormItemAdd.resx">
       <DependentUpon>FormItemAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemImage.resx">
+      <DependentUpon>FormItemImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrderHeader.resx">
       <DependentUpon>FormOrderHeader.cs</DependentUpon>
@@ -176,11 +239,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.CUSTOMERS.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.HISTORY_HEADERS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.HISTORY_LINES.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ITEMS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_HEADERS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_LINES.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.STORES.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.USERS.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -76,6 +76,16 @@ namespace PizzaServiceEF
                     return;
                 }
 
+            var cityPresence = (from c in ctx.STORES
+                                where c.S_CITY.Equals(textBoxCity.Text.Trim())
+                                select c).Count();
+
+            if (cityPresence == 0)
+            {
+                MessageBox.Show("На жаль, доставка Dominos в місто " + textBoxCity.Text + " неможлива!");
+                return;
+            }
+
 
             var customer = (from c in ctx.CUSTOMERS
                             where c.C_USERID == user
@@ -94,6 +104,7 @@ namespace PizzaServiceEF
             {
                 HH_DATE = System.DateTime.Now,
                 HH_PAYMENT_TYPE = comboBoxPayment.Text,
+                HH_CUSTOMER = header.OH_CUSTOMER
             };
 
             if (comboBoxPayment.Text.Equals("Карткою онлайн"))
