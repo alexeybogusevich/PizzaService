@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="PizzaServiceModel.ORDER_HEADERS" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaServiceModel.ORDER_LINES" Width="1.5" PointX="4.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaServiceModel.STORES" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.TRANSACTIONS" Width="1.5" PointX="8.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.TRANSACTIONS" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_HEADERS_CUSTOMERS" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_HISTORY_HEADERS_TRANSACTIONS" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_HISTORY_LINES_HISTORY_HEADERS" ManuallyRouted="false" />

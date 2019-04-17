@@ -26,12 +26,41 @@ namespace PizzaServiceEF
                          where line.OL_ORDER_HEADER == header_id
                          select line);
 
+            var items = (from item in ctx.ITEMS
+                         select item);
+
+            iTEMSBindingSource.DataSource = items.ToList();
             oRDERLINESBindingSource.DataSource = query.ToList();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
+            string message = "Ви впевнені, що хочете відминити це замовлення?";
+            string caption = "Увага!";
 
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
+            var header = (from h in ctx.ORDER_HEADERS
+                          where h.OH_ID == header_id
+                          select h).First();
+
+            ctx.ORDER_HEADERS.Remove(header);
+            ctx.SaveChanges();
+
+            this.Close();
+        }
+
+        private void dataGridViewOrder_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //
         }
     }
 }

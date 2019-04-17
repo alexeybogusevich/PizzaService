@@ -120,6 +120,12 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransaction.Designer.cs">
+      <DependentUpon>FormTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image.cs" />
     <Compile Include="ImagesLoad.cs" />
     <Compile Include="Program.cs" />
@@ -157,6 +163,9 @@
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTransaction.resx">
+      <DependentUpon>FormTransaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -171,6 +180,7 @@
     <None Include="Properties\DataSources\PizzaServiceDataEF.ITEMS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_HEADERS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_LINES.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.STORES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

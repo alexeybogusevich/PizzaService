@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaServiceDataEF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +17,21 @@ namespace PizzaServiceEF
         private PizzaServiceDataEF.PizzaServiceEntities ctx;
         private int o_header_id;
         private bool finished = false;
+        private int user;
+        private double sum;
 
         public FormOrderHeader()
         {
             InitializeComponent();
         }
 
-        public FormOrderHeader(List<int> orders)
+        public FormOrderHeader(List<int> orders, int user_id, double s)
         {
             InitializeComponent();
             ctx = new PizzaServiceDataEF.PizzaServiceEntities();
             orderLines = orders;
+            user = user_id;
+            sum = s;
 
             o_header_id = 0;
 
@@ -41,63 +46,108 @@ namespace PizzaServiceEF
 
             iTEMSBindingSource.DataSource = ctx.ITEMS.ToList();
 
+            SetTabIndexes(this);
+        }
+
+        static void SetTabIndexes(Control parent)
+        {
+            List<Control> list = new List<Control>(parent.Controls.Count);
+            foreach (Control item in parent.Controls)
+            {
+                list.Add(item);
+            }
+            list.Sort(new ControlSorter());
+            int index = 0;
+            foreach (var item in list)
+            {
+                item.TabIndex = index;
+                index++;
+            }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (comboBox000.Text == null || comboBoxPayment.Text == null ||
+            if (comboBoxPayment.Text == null || textBoxHouse.Text == null ||
                 textBoxApp.Text == null || textBoxCity.Text == null ||
-                textBoxEmail.Text == null || textBoxHouse.Text == null ||
-                textBoxNumber.Text == null || textBoxStreet.Text == null)
+                textBoxHouse.Text == "" || textBoxCity.Text == "" ||
+                textBoxApp.Text == "" || comboBoxPayment.Text == "")
                 {
                     MessageBox.Show("Заповніть обов'язкові поля!");
                     return;
                 }
 
-            if(!IsValidEmail(textBoxEmail.Text))
+
+            var customer = (from c in ctx.CUSTOMERS
+                            where c.C_USERID == user
+                            select c).First();
+
+            var header = new ORDER_HEADERS
             {
-                MessageBox.Show("Недопустимий Email!");
-                textBoxEmail.Text = "";
-                return;
+                OH_CUSTOMER = customer.C_ID,
+                OH_ADDRESS = textBoxCity.Text + ", вул. " + textBoxStreet.Text + " " + textBoxHouse.Text + " кв." + textBoxApp.Text,
+                OH_STORE = 1, //////////////////////////////////////////////////////////////////////////
+                OH_DATE = System.DateTime.Now,
+                OH_SUM = sum
+            };
+
+            var history_header = new HISTORY_HEADERS
+            {
+                HH_DATE = System.DateTime.Now,
+                HH_PAYMENT_TYPE = comboBoxPayment.Text,
+            };
+
+            if (comboBoxPayment.Text.Equals("Карткою онлайн"))
+            {
+                FormTransaction transaction = new FormTransaction(sum);
+                transaction.ShowDialog(this);
+                if (transaction.finished)
+                {
+                    history_header.HH_TRANSACTION = transaction.transaction_id;
+                }
+                else
+                {
+                    MessageBox.Show("Транзакцію не було завершено!");
+                    transaction.Dispose();
+                    return;
+                }
+                transaction.Dispose();
             }
 
-            if(textBoxNumber.Text.Length != 7)
+            ctx.ORDER_HEADERS.Add(header);
+            ctx.SaveChanges();
+
+            ctx.HISTORY_HEADERS.Add(history_header);
+            ctx.SaveChanges();
+
+            var lines = (from line in ctx.ORDER_LINES
+                         where orderLines.Contains(line.OL_ID)
+                         select line).ToList();
+
+            foreach (var line in lines)
             {
-                MessageBox.Show("Недопустимий номер телефону!");
-                textBoxNumber.Text = "";
-                comboBox000.Text = "";
-                return;
+                line.OL_ORDER_HEADER = header.OH_ID;
+
+                var x = new HISTORY_LINES
+                {
+                    HL_ITEM = line.OL_ITEM,
+                    HL_ORDER_HEADER = history_header.HH_ID,
+                    HL_QUANTITY = line.OL_QUANTITY
+                };
+                ctx.HISTORY_LINES.Add(x);
+                ctx.SaveChanges();
             }
 
             finished = true;
+
+            MessageBox.Show("Дякуємо за покупку! \nОчікуйте СМС-повідомлення.");
+
             this.Close();
-        }
-
-        bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void textBoxNumber_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9) && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9))
-            {
-                MessageBox.Show("Недопустимий символ!");
-                textBoxNumber.Text = "";
-            }
         }
 
         private void textBoxApp_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9) && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9))
+            if ((e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9) && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) &&
+                e.KeyCode != Keys.Tab && e.KeyCode != Keys.Back)
             {
                 MessageBox.Show("Недопустимий символ!");
                 textBoxApp.Text = "";

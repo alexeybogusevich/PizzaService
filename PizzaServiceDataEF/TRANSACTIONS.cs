@@ -21,7 +21,7 @@ namespace PizzaServiceDataEF
         }
     
         public int T_ID { get; set; }
-        public decimal T_RRN { get; set; }
+        public string T_RRN { get; set; }
         public System.DateTime T_DATE { get; set; }
         public System.DateTime T_EXPIRE_DATE { get; set; }
     

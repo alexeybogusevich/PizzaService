@@ -20,7 +20,7 @@
             <PropertyRef Name="HH_ID" />
           </Key>
           <Property Name="HH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="HH_PAYMENT_TYPE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="HH_PAYMENT_TYPE" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="HH_TRANSACTION" Type="int" />
           <Property Name="HH_DATE" Type="date" Nullable="false" />
         </EntityType>
@@ -62,7 +62,8 @@
           <Property Name="OH_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OH_CUSTOMER" Type="int" Nullable="false" />
           <Property Name="OH_STORE" Type="int" Nullable="false" />
-          <Property Name="OH_DATE" Type="date" Nullable="false" />
+          <Property Name="OH_DATE" Type="datetime" Nullable="false" />
+          <Property Name="OH_SUM" Type="float" />
         </EntityType>
         <EntityType Name="ORDER_LINES">
           <Key>
@@ -86,7 +87,7 @@
             <PropertyRef Name="T_ID" />
           </Key>
           <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="T_RRN" Type="numeric" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="T_RRN" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="T_DATE" Type="date" Nullable="false" />
           <Property Name="T_EXPIRE_DATE" Type="date" Nullable="false" />
         </EntityType>
@@ -276,7 +277,7 @@
             <PropertyRef Name="HH_ID" />
           </Key>
           <Property Name="HH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HH_PAYMENT_TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HH_PAYMENT_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HH_TRANSACTION" Type="Int32" />
           <Property Name="HH_DATE" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_HISTORY_HEADERS_TRANSACTIONS" FromRole="HISTORY_HEADERS" ToRole="TRANSACTIONS" />
@@ -326,10 +327,11 @@
           <Property Name="OH_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OH_CUSTOMER" Type="Int32" Nullable="false" />
           <Property Name="OH_STORE" Type="Int32" Nullable="false" />
-          <Property Name="OH_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OH_DATE" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CUSTOMERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="ORDER_HEADERS" ToRole="CUSTOMERS" />
           <NavigationProperty Name="STORES" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="ORDER_HEADERS" ToRole="STORES" />
           <NavigationProperty Name="ORDER_LINES" Relationship="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1" FromRole="ORDER_HEADERS" ToRole="ORDER_LINES" />
+          <Property Name="OH_SUM" Type="Double" />
         </EntityType>
         <EntityType Name="ORDER_LINES">
           <Key>
@@ -356,7 +358,7 @@
             <PropertyRef Name="T_ID" />
           </Key>
           <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="T_RRN" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="T_RRN" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="T_DATE" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="T_EXPIRE_DATE" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="HISTORY_HEADERS" Relationship="Self.FK_HISTORY_HEADERS_TRANSACTIONS" FromRole="TRANSACTIONS" ToRole="HISTORY_HEADERS" />
@@ -590,6 +592,7 @@
           <EntitySetMapping Name="ORDER_HEADERS">
             <EntityTypeMapping TypeName="PizzaServiceModel.ORDER_HEADERS">
               <MappingFragment StoreEntitySet="ORDER_HEADERS">
+                <ScalarProperty Name="OH_SUM" ColumnName="OH_SUM" />
                 <ScalarProperty Name="OH_ID" ColumnName="OH_ID" />
                 <ScalarProperty Name="OH_ADDRESS" ColumnName="OH_ADDRESS" />
                 <ScalarProperty Name="OH_CUSTOMER" ColumnName="OH_CUSTOMER" />

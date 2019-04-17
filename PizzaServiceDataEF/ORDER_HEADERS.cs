@@ -25,6 +25,7 @@ namespace PizzaServiceDataEF
         public int OH_CUSTOMER { get; set; }
         public int OH_STORE { get; set; }
         public System.DateTime OH_DATE { get; set; }
+        public Nullable<double> OH_SUM { get; set; }
     
         public virtual CUSTOMERS CUSTOMERS { get; set; }
         public virtual STORES STORES { get; set; }

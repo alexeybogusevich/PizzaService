@@ -143,7 +143,7 @@ namespace PizzaServiceEF
 
             finished = true;
 
-            FormOrderHeader orderHeader = new FormOrderHeader(orderLines);
+            FormOrderHeader orderHeader = new FormOrderHeader(orderLines, user_id, sum);
             orderHeader.ShowDialog(this);
             orderHeader.Dispose();
             this.Close();

@@ -145,25 +145,25 @@
             this.userNameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.активніЗамовленняToolStripMenuItem,
             this.історіяЗамовленьToolStripMenuItem});
-            this.userNameToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userNameToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.userNameToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.userNameToolStripMenuItem.Name = "userNameToolStripMenuItem";
-            this.userNameToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.userNameToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.userNameToolStripMenuItem.Text = "Користувач";
             this.userNameToolStripMenuItem.Click += new System.EventHandler(this.userNameToolStripMenuItem_Click);
             // 
             // активніЗамовленняToolStripMenuItem
             // 
             this.активніЗамовленняToolStripMenuItem.Name = "активніЗамовленняToolStripMenuItem";
-            this.активніЗамовленняToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.активніЗамовленняToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.активніЗамовленняToolStripMenuItem.Text = "Активні замовлення  ";
             this.активніЗамовленняToolStripMenuItem.Click += new System.EventHandler(this.активніЗамовленняToolStripMenuItem_Click);
             // 
             // історіяЗамовленьToolStripMenuItem
             // 
             this.історіяЗамовленьToolStripMenuItem.Name = "історіяЗамовленьToolStripMenuItem";
-            this.історіяЗамовленьToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.історіяЗамовленьToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.історіяЗамовленьToolStripMenuItem.Text = "Історія замовлень";
             this.історіяЗамовленьToolStripMenuItem.Click += new System.EventHandler(this.історіяЗамовленьToolStripMenuItem_Click);
             // 

@@ -33,15 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
-            this.oLITEMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oRDERLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.oLITEMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.oLQUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iTEMSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oLORDERHEADERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERHEADERSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oRDERLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDERLINESBindingSource)).BeginInit();
@@ -74,6 +74,29 @@
             this.dataGridViewOrder.RowHeadersVisible = false;
             this.dataGridViewOrder.Size = new System.Drawing.Size(360, 143);
             this.dataGridViewOrder.TabIndex = 0;
+            this.dataGridViewOrder.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewOrder_DataError);
+            // 
+            // iTEMSBindingSource
+            // 
+            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
+            // 
+            // oRDERLINESBindingSource
+            // 
+            this.oRDERLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.ORDER_LINES);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(13, 162);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(359, 37);
+            this.buttonDelete.TabIndex = 1;
+            this.buttonDelete.Text = "Відмінити замовлення";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // oLITEMDataGridViewTextBoxColumn
             // 
@@ -90,22 +113,19 @@
             this.oLITEMDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.oLITEMDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.oLITEMDataGridViewTextBoxColumn.ValueMember = "I_ID";
-            this.oLITEMDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // iTEMSBindingSource
-            // 
-            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
+            this.oLITEMDataGridViewTextBoxColumn.Width = 277;
             // 
             // oLQUANTITYDataGridViewTextBoxColumn
             // 
             this.oLQUANTITYDataGridViewTextBoxColumn.DataPropertyName = "OL_QUANTITY";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.oLQUANTITYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.oLQUANTITYDataGridViewTextBoxColumn.HeaderText = "Кількість";
             this.oLQUANTITYDataGridViewTextBoxColumn.Name = "oLQUANTITYDataGridViewTextBoxColumn";
-            this.oLQUANTITYDataGridViewTextBoxColumn.Width = 107;
+            this.oLQUANTITYDataGridViewTextBoxColumn.Width = 80;
             // 
             // iTEMSDataGridViewTextBoxColumn
             // 
@@ -135,24 +155,6 @@
             this.oRDERHEADERSDataGridViewTextBoxColumn.Name = "oRDERHEADERSDataGridViewTextBoxColumn";
             this.oRDERHEADERSDataGridViewTextBoxColumn.Visible = false;
             // 
-            // oRDERLINESBindingSource
-            // 
-            this.oRDERLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.ORDER_LINES);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(13, 162);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(359, 37);
-            this.buttonDelete.TabIndex = 1;
-            this.buttonDelete.Text = "Відмінити замовлення";
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormActiveOrdersSelected
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,12 +179,12 @@
         private System.Windows.Forms.DataGridView dataGridViewOrder;
         private System.Windows.Forms.BindingSource iTEMSBindingSource;
         private System.Windows.Forms.BindingSource oRDERLINESBindingSource;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridViewComboBoxColumn oLITEMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oLQUANTITYDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iTEMSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oLIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oLORDERHEADERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oRDERHEADERSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button buttonDelete;
     }
 }
