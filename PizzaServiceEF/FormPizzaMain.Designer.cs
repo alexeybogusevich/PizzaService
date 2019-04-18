@@ -81,6 +81,7 @@
             this.buttonComment.TabIndex = 2;
             this.buttonComment.Text = "Залишити відгук";
             this.buttonComment.UseVisualStyleBackColor = false;
+            this.buttonComment.Click += new System.EventHandler(this.buttonComment_Click);
             // 
             // buttonEnter
             // 
@@ -102,7 +103,7 @@
             this.buttonAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAdmin.ForeColor = System.Drawing.Color.White;
-            this.buttonAdmin.Location = new System.Drawing.Point(-2, 337);
+            this.buttonAdmin.Location = new System.Drawing.Point(-1, 337);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(263, 56);
             this.buttonAdmin.TabIndex = 5;
@@ -182,6 +183,7 @@
             this.Controls.Add(this.buttonOrder);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
             this.MaximizeBox = false;
             this.Name = "FormPizzaService";

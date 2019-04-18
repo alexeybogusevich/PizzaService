@@ -52,7 +52,7 @@
           <Property Name="I_SIZE" Type="nchar" MaxLength="2" />
           <Property Name="I_DESCRIPTION" Type="ntext" />
           <Property Name="I_CATEGORY" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="I_PRICE" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="I_PRICE" Type="numeric" Precision="11" Scale="2" Nullable="false" />
           <Property Name="I_IMAGE" Type="int" />
         </EntityType>
         <EntityType Name="ORDER_HEADERS">
@@ -74,6 +74,15 @@
           <Property Name="OL_ORDER_HEADER" Type="int" />
           <Property Name="OL_ITEM" Type="int" Nullable="false" />
           <Property Name="OL_QUANTITY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REVIEWS">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="R_USERID" Type="int" Nullable="false" />
+          <Property Name="R_TEXT" Type="text" Nullable="false" />
+          <Property Name="R_DATE" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="STORES">
           <Key>
@@ -209,6 +218,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_REVIEWS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="REVIEWS" Type="Self.REVIEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="REVIEWS">
+              <PropertyRef Name="R_USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище PizzaServiceModelContainer">
           <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HISTORY_HEADERS" EntityType="Self.HISTORY_HEADERS" Schema="dbo" store:Type="Tables" />
@@ -217,6 +238,7 @@
           <EntitySet Name="ITEMS" EntityType="Self.ITEMS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER_HEADERS" EntityType="Self.ORDER_HEADERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER_LINES" EntityType="Self.ORDER_LINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REVIEWS" EntityType="Self.REVIEWS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STORES" EntityType="Self.STORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
@@ -255,6 +277,10 @@
           <AssociationSet Name="FK_ORDER_LINES_ORDER_HEADERS1" Association="Self.FK_ORDER_LINES_ORDER_HEADERS1">
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REVIEWS_USERS" Association="Self.FK_REVIEWS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="REVIEWS" EntitySet="REVIEWS" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -315,7 +341,7 @@
           <Property Name="I_SIZE" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="I_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="I_CATEGORY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="I_PRICE" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="I_PRICE" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
           <Property Name="I_IMAGE" Type="Int32" />
           <NavigationProperty Name="HISTORY_LINES" Relationship="Self.FK_HISTORY_LINES_ITEMS" FromRole="ITEMS" ToRole="HISTORY_LINES" />
           <NavigationProperty Name="IMAGES" Relationship="Self.FK_ITEMS_IMAGES" FromRole="ITEMS" ToRole="IMAGES" />
@@ -496,6 +522,11 @@
             <End Role="USERS" EntitySet="USERS" />
             <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
           </AssociationSet>
+          <EntitySet Name="REVIEWS" EntityType="PizzaServiceModel.REVIEWS" />
+          <AssociationSet Name="FK_REVIEWS_USERS" Association="PizzaServiceModel.FK_REVIEWS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="REVIEWS" EntitySet="REVIEWS" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_ORDER_LINES_ORDER_HEADERS1">
           <End Type="PizzaServiceModel.ORDER_HEADERS" Role="ORDER_HEADERS" Multiplicity="0..1" />
@@ -518,6 +549,7 @@
           <Property Name="U_PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="U_MODIFIER" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="CUSTOMERS" Relationship="PizzaServiceModel.FK_CUSTOMERS_USERS" FromRole="USERS" ToRole="CUSTOMERS" />
+          <NavigationProperty Name="REVIEWS" Relationship="PizzaServiceModel.FK_REVIEWS_USERS" FromRole="USERS" ToRole="REVIEWS" />
         </EntityType>
         <Association Name="FK_CUSTOMERS_USERS">
           <End Type="PizzaServiceModel.USERS" Role="USERS" Multiplicity="0..1" />
@@ -528,6 +560,28 @@
             </Principal>
             <Dependent Role="CUSTOMERS">
               <PropertyRef Name="C_USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="REVIEWS">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="R_USERID" Type="Int32" Nullable="false" />
+          <Property Name="R_TEXT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USERS" Relationship="PizzaServiceModel.FK_REVIEWS_USERS" FromRole="REVIEWS" ToRole="USERS" />
+          <Property Name="R_DATE" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_REVIEWS_USERS">
+          <End Type="PizzaServiceModel.USERS" Role="USERS" Multiplicity="1" />
+          <End Type="PizzaServiceModel.REVIEWS" Role="REVIEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="REVIEWS">
+              <PropertyRef Name="R_USERID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -640,6 +694,16 @@
                 <ScalarProperty Name="U_PASSWORD" ColumnName="U_PASSWORD" />
                 <ScalarProperty Name="U_LOGIN" ColumnName="U_LOGIN" />
                 <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REVIEWS">
+            <EntityTypeMapping TypeName="PizzaServiceModel.REVIEWS">
+              <MappingFragment StoreEntitySet="REVIEWS">
+                <ScalarProperty Name="R_DATE" ColumnName="R_DATE" />
+                <ScalarProperty Name="R_TEXT" ColumnName="R_TEXT" />
+                <ScalarProperty Name="R_USERID" ColumnName="R_USERID" />
+                <ScalarProperty Name="R_ID" ColumnName="R_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

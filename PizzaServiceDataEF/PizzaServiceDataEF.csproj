@@ -89,6 +89,9 @@
       <DependentUpon>ModelPizzaService.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REVIEWS.cs">
+      <DependentUpon>ModelPizzaService.tt</DependentUpon>
+    </Compile>
     <Compile Include="STORES.cs">
       <DependentUpon>ModelPizzaService.tt</DependentUpon>
     </Compile>

@@ -154,5 +154,10 @@ namespace PizzaServiceEF
             administration.ShowDialog(this);
             administration.Dispose();
         }
+
+        private void buttonComment_Click(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }

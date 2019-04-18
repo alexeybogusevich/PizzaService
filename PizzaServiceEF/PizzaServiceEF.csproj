@@ -162,6 +162,18 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReviews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReviews.Designer.cs">
+      <DependentUpon>FormReviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchItems.Designer.cs">
+      <DependentUpon>FormSearchItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,12 @@
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReviews.resx">
+      <DependentUpon>FormReviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchItems.resx">
+      <DependentUpon>FormSearchItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTransaction.resx">
       <DependentUpon>FormTransaction.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +263,7 @@
     <None Include="Properties\DataSources\PizzaServiceDataEF.ITEMS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_HEADERS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.ORDER_LINES.datasource" />
+    <None Include="Properties\DataSources\PizzaServiceDataEF.REVIEWS.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.STORES.datasource" />
     <None Include="Properties\DataSources\PizzaServiceDataEF.USERS.datasource" />
     <None Include="Properties\Settings.settings">

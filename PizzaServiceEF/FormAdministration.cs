@@ -27,7 +27,8 @@ namespace PizzaServiceEF
                                   select h).OrderByDescending(x => x.HH_DATE);
 
             var items = (from i in ctx.ITEMS
-                         select i).OrderBy(x => x.I_NAME);
+                         orderby i.I_CATEGORY, i.I_NAME
+                         select i);
 
             var customers = (from c in ctx.CUSTOMERS
                              select c);
@@ -135,8 +136,35 @@ namespace PizzaServiceEF
             }
             else
             {
-                iTEMSBindingSource.RemoveCurrent();
+                if (dataGridViewItems.CurrentRow.Cells["iCATEGORYDataGridViewTextBoxColumn"].Value.ToString().Equals("Піца"))
+                {
+                    string pName = dataGridViewItems.CurrentRow.Cells["iNAMEDataGridViewTextBoxColumn"].Value.ToString();
+                    var lines = (from i in ctx.ITEMS
+                                 where i.I_NAME.Equals(pName)
+                                 select i).ToList();
+
+                    foreach (var line in lines)
+                    {
+                        ctx.ITEMS.Remove(line);
+                        ctx.SaveChanges();
+                    }
+                }
+                else
+                {
+                    var item = (from i in ctx.ITEMS
+                                where i.I_ID == item_id
+                                select i).First();
+
+                    ctx.ITEMS.Remove(item);
+                    ctx.SaveChanges();
+                }
             }
+
+            var items = (from i in ctx.ITEMS
+                         orderby i.I_CATEGORY, i.I_NAME
+                         select i);
+
+            iTEMSBindingSource.DataSource = items.ToList();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -146,7 +174,8 @@ namespace PizzaServiceEF
             addItem.Dispose();
 
             var items = (from i in ctx.ITEMS
-                         select i).OrderBy(x => x.I_NAME);
+                         orderby i.I_CATEGORY, i.I_NAME
+                         select i);
 
             iTEMSBindingSource.DataSource = items.ToList();
         }
@@ -245,6 +274,98 @@ namespace PizzaServiceEF
                           select s);
 
             sTORESBindingSource.DataSource = stores.ToList();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            FormSearchItems searchItems = new FormSearchItems();
+            searchItems.ShowDialog(this);
+
+            string category = searchItems.category;
+            string ingredient = searchItems.ingerdients;
+            int price = searchItems.price;
+
+            if(category != null && ingredient != null && price != 0)
+            {
+                var query = (from i in ctx.ITEMS
+                              where i.I_DESCRIPTION.Contains(ingredient) && i.I_PRICE < price && i.I_CATEGORY.Equals(category)
+                              select i);
+
+                iTEMSBindingSource.DataSource = query.ToList();
+                return;
+            }
+            else
+            {
+                if(category != null && price != 0)
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_PRICE < price && i.I_CATEGORY.Equals(category)
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+
+                else if(category != null && ingredient != null)
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_DESCRIPTION.Contains(ingredient) && i.I_CATEGORY.Equals(category)
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+                else if(price != 0 && ingredient != null)
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_DESCRIPTION.Contains(ingredient) && i.I_PRICE < price
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+                else if(category != null)
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_CATEGORY.Equals(category)
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+                else if(price != 0)
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_PRICE < price
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+                else
+                {
+                    var query = (from i in ctx.ITEMS
+                                 where i.I_DESCRIPTION.Contains(ingredient)
+                                 select i);
+
+                    iTEMSBindingSource.DataSource = query.ToList();
+                    return;
+                }
+            }
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            var query = (from i in ctx.ITEMS
+                         select i);
+
+            iTEMSBindingSource.DataSource = query.ToList();
+            return;
+        }
+
+        private void dataGridViewItems_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //
         }
     }
 }

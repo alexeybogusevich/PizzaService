@@ -35,5 +35,6 @@ namespace PizzaServiceDataEF
         public virtual DbSet<STORES> STORES { get; set; }
         public virtual DbSet<TRANSACTIONS> TRANSACTIONS { get; set; }
         public virtual DbSet<USERS> USERS { get; set; }
+        public virtual DbSet<REVIEWS> REVIEWS { get; set; }
     }
 }

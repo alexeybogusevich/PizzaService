@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0c56ac9618e8474b995edc5d01940728" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="PizzaServiceModel.CUSTOMERS" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.HISTORY_HEADERS" Width="1.5" PointX="6.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.HISTORY_LINES" Width="1.5" PointX="6.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.IMAGES" Width="1.5" PointX="2.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.ITEMS" Width="1.5" PointX="2.25" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.ORDER_HEADERS" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.ORDER_LINES" Width="1.5" PointX="4.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.STORES" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaServiceModel.TRANSACTIONS" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="0c56ac9618e8474b995edc5d01940728" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="PizzaServiceModel.CUSTOMERS" Width="1.5" PointX="0.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.HISTORY_HEADERS" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.HISTORY_LINES" Width="1.5" PointX="5.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.IMAGES" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.ITEMS" Width="1.5" PointX="2.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.ORDER_HEADERS" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.ORDER_LINES" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.STORES" Width="1.5" PointX="2.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaServiceModel.TRANSACTIONS" Width="1.5" PointX="7.375" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_HEADERS_CUSTOMERS" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_HISTORY_HEADERS_TRANSACTIONS" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_HISTORY_LINES_HISTORY_HEADERS" ManuallyRouted="false" />
@@ -22,8 +22,10 @@
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_LINES_ITEMS" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_HEADERS_STORES" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1" />
-        <EntityTypeShape EntityType="PizzaServiceModel.USERS" Width="1.5" PointX="8.5" PointY="3" />
+        <EntityTypeShape EntityType="PizzaServiceModel.USERS" Width="1.5" PointX="7.5" PointY="2.625" />
         <AssociationConnector Association="PizzaServiceModel.FK_CUSTOMERS_USERS" />
+        <EntityTypeShape EntityType="PizzaServiceModel.REVIEWS" Width="1.5" PointX="9.125" PointY="3" />
+        <AssociationConnector Association="PizzaServiceModel.FK_REVIEWS_USERS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

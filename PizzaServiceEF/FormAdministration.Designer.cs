@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageOrderHeaders = new System.Windows.Forms.TabPage();
             this.buttonOrderDone = new System.Windows.Forms.Button();
@@ -82,6 +82,17 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
+            this.iNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCATEGORYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.iSIZEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.iIMAGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hISTORYLINESDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iMAGESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oRDERLINESDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageStores = new System.Windows.Forms.TabPage();
             this.buttonDeleteStore = new System.Windows.Forms.Button();
@@ -101,17 +112,7 @@
             this.cUSTOMERSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uSERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCATEGORYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.iSIZEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.iIMAGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hISTORYLINESDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iMAGESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oRDERLINESDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageOrderHeaders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderHeaders)).BeginInit();
@@ -192,6 +193,7 @@
             this.dataGridViewOrderHeaders.DataSource = this.oRDERHEADERSBindingSource;
             this.dataGridViewOrderHeaders.GridColor = System.Drawing.Color.White;
             this.dataGridViewOrderHeaders.Location = new System.Drawing.Point(6, 66);
+            this.dataGridViewOrderHeaders.MultiSelect = false;
             this.dataGridViewOrderHeaders.Name = "dataGridViewOrderHeaders";
             this.dataGridViewOrderHeaders.ReadOnly = true;
             this.dataGridViewOrderHeaders.RowHeadersVisible = false;
@@ -204,9 +206,9 @@
             // oHIDDataGridViewTextBoxColumn
             // 
             this.oHIDDataGridViewTextBoxColumn.DataPropertyName = "OH_ID";
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.Color.White;
-            this.oHIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.Color.White;
+            this.oHIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle74;
             this.oHIDDataGridViewTextBoxColumn.HeaderText = "#";
             this.oHIDDataGridViewTextBoxColumn.Name = "oHIDDataGridViewTextBoxColumn";
             this.oHIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -216,9 +218,9 @@
             // 
             this.oHCUSTOMERDataGridViewTextBoxColumn.DataPropertyName = "OH_CUSTOMER";
             this.oHCUSTOMERDataGridViewTextBoxColumn.DataSource = this.cUSTOMERSBindingSource;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.Color.White;
-            this.oHCUSTOMERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.Color.White;
+            this.oHCUSTOMERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle75;
             this.oHCUSTOMERDataGridViewTextBoxColumn.DisplayMember = "C_NAME";
             this.oHCUSTOMERDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.oHCUSTOMERDataGridViewTextBoxColumn.HeaderText = "На ім\'я";
@@ -236,9 +238,9 @@
             // oHADDRESSDataGridViewTextBoxColumn
             // 
             this.oHADDRESSDataGridViewTextBoxColumn.DataPropertyName = "OH_ADDRESS";
-            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.Color.White;
-            this.oHADDRESSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.Color.White;
+            this.oHADDRESSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle76;
             this.oHADDRESSDataGridViewTextBoxColumn.HeaderText = "Адреса";
             this.oHADDRESSDataGridViewTextBoxColumn.Name = "oHADDRESSDataGridViewTextBoxColumn";
             this.oHADDRESSDataGridViewTextBoxColumn.ReadOnly = true;
@@ -247,9 +249,9 @@
             // oHSTOREDataGridViewTextBoxColumn
             // 
             this.oHSTOREDataGridViewTextBoxColumn.DataPropertyName = "OH_STORE";
-            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.Color.White;
-            this.oHSTOREDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.Color.White;
+            this.oHSTOREDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle77;
             this.oHSTOREDataGridViewTextBoxColumn.HeaderText = "Ресторан #";
             this.oHSTOREDataGridViewTextBoxColumn.Name = "oHSTOREDataGridViewTextBoxColumn";
             this.oHSTOREDataGridViewTextBoxColumn.ReadOnly = true;
@@ -257,9 +259,9 @@
             // oHDATEDataGridViewTextBoxColumn
             // 
             this.oHDATEDataGridViewTextBoxColumn.DataPropertyName = "OH_DATE";
-            dataGridViewCellStyle93.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle93.SelectionForeColor = System.Drawing.Color.White;
-            this.oHDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.Color.White;
+            this.oHDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle78;
             this.oHDATEDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.oHDATEDataGridViewTextBoxColumn.Name = "oHDATEDataGridViewTextBoxColumn";
             this.oHDATEDataGridViewTextBoxColumn.ReadOnly = true;
@@ -356,9 +358,9 @@
             // hHIDDataGridViewTextBoxColumn
             // 
             this.hHIDDataGridViewTextBoxColumn.DataPropertyName = "HH_ID";
-            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.Color.White;
-            this.hHIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.Color.White;
+            this.hHIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle79;
             this.hHIDDataGridViewTextBoxColumn.HeaderText = "#";
             this.hHIDDataGridViewTextBoxColumn.Name = "hHIDDataGridViewTextBoxColumn";
             this.hHIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -368,9 +370,9 @@
             // 
             this.hHCUSTOMERDataGridViewTextBoxColumn.DataPropertyName = "HH_CUSTOMER";
             this.hHCUSTOMERDataGridViewTextBoxColumn.DataSource = this.cUSTOMERSBindingSource;
-            dataGridViewCellStyle95.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle95.SelectionForeColor = System.Drawing.Color.White;
-            this.hHCUSTOMERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.White;
+            this.hHCUSTOMERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle80;
             this.hHCUSTOMERDataGridViewTextBoxColumn.DisplayMember = "C_NAME";
             this.hHCUSTOMERDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.hHCUSTOMERDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -385,9 +387,9 @@
             // hHDATEDataGridViewTextBoxColumn
             // 
             this.hHDATEDataGridViewTextBoxColumn.DataPropertyName = "HH_DATE";
-            dataGridViewCellStyle96.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle96.SelectionForeColor = System.Drawing.Color.White;
-            this.hHDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.Color.White;
+            this.hHDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle81;
             this.hHDATEDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.hHDATEDataGridViewTextBoxColumn.Name = "hHDATEDataGridViewTextBoxColumn";
             this.hHDATEDataGridViewTextBoxColumn.ReadOnly = true;
@@ -396,9 +398,9 @@
             // hHPAYMENTTYPEDataGridViewTextBoxColumn
             // 
             this.hHPAYMENTTYPEDataGridViewTextBoxColumn.DataPropertyName = "HH_PAYMENT_TYPE";
-            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.Color.White;
-            this.hHPAYMENTTYPEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.Color.White;
+            this.hHPAYMENTTYPEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle82;
             this.hHPAYMENTTYPEDataGridViewTextBoxColumn.HeaderText = "Оплата";
             this.hHPAYMENTTYPEDataGridViewTextBoxColumn.Name = "hHPAYMENTTYPEDataGridViewTextBoxColumn";
             this.hHPAYMENTTYPEDataGridViewTextBoxColumn.ReadOnly = true;
@@ -434,6 +436,7 @@
             // 
             // tabPageItems
             // 
+            this.tabPageItems.Controls.Add(this.buttonBack);
             this.tabPageItems.Controls.Add(this.buttonSearch);
             this.tabPageItems.Controls.Add(this.buttonDelete);
             this.tabPageItems.Controls.Add(this.buttonAdd);
@@ -452,12 +455,13 @@
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(469, 15);
+            this.buttonSearch.Location = new System.Drawing.Point(443, 15);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(111, 35);
             this.buttonSearch.TabIndex = 3;
             this.buttonSearch.Text = "Пошук";
             this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonDelete
             // 
@@ -465,7 +469,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(292, 15);
+            this.buttonDelete.Location = new System.Drawing.Point(267, 15);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(111, 35);
             this.buttonDelete.TabIndex = 2;
@@ -479,7 +483,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(118, 15);
+            this.buttonAdd.Location = new System.Drawing.Point(84, 15);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(111, 35);
             this.buttonAdd.TabIndex = 1;
@@ -511,6 +515,7 @@
             this.dataGridViewItems.DataSource = this.iTEMSBindingSource;
             this.dataGridViewItems.GridColor = System.Drawing.Color.White;
             this.dataGridViewItems.Location = new System.Drawing.Point(6, 66);
+            this.dataGridViewItems.MultiSelect = false;
             this.dataGridViewItems.Name = "dataGridViewItems";
             this.dataGridViewItems.ReadOnly = true;
             this.dataGridViewItems.RowHeadersVisible = false;
@@ -518,6 +523,127 @@
             this.dataGridViewItems.Size = new System.Drawing.Size(690, 236);
             this.dataGridViewItems.TabIndex = 0;
             this.dataGridViewItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItems_CellClick);
+            this.dataGridViewItems.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewItems_DataError);
+            // 
+            // iNAMEDataGridViewTextBoxColumn
+            // 
+            this.iNAMEDataGridViewTextBoxColumn.DataPropertyName = "I_NAME";
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.Color.White;
+            this.iNAMEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle67;
+            this.iNAMEDataGridViewTextBoxColumn.HeaderText = "Назва";
+            this.iNAMEDataGridViewTextBoxColumn.Name = "iNAMEDataGridViewTextBoxColumn";
+            this.iNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iNAMEDataGridViewTextBoxColumn.Width = 225;
+            // 
+            // iCATEGORYDataGridViewTextBoxColumn
+            // 
+            this.iCATEGORYDataGridViewTextBoxColumn.DataPropertyName = "I_CATEGORY";
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.Color.White;
+            this.iCATEGORYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle68;
+            this.iCATEGORYDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iCATEGORYDataGridViewTextBoxColumn.HeaderText = "Категорія";
+            this.iCATEGORYDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "Піца",
+            "Напій",
+            "Десерт",
+            "Сайди"});
+            this.iCATEGORYDataGridViewTextBoxColumn.Name = "iCATEGORYDataGridViewTextBoxColumn";
+            this.iCATEGORYDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iCATEGORYDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iCATEGORYDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.iCATEGORYDataGridViewTextBoxColumn.Width = 103;
+            // 
+            // iSIZEDataGridViewTextBoxColumn
+            // 
+            this.iSIZEDataGridViewTextBoxColumn.DataPropertyName = "I_SIZE";
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.Color.White;
+            this.iSIZEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle69;
+            this.iSIZEDataGridViewTextBoxColumn.HeaderText = "Розмір";
+            this.iSIZEDataGridViewTextBoxColumn.Name = "iSIZEDataGridViewTextBoxColumn";
+            this.iSIZEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iSIZEDataGridViewTextBoxColumn.Width = 63;
+            // 
+            // iDESCRIPTIONDataGridViewTextBoxColumn
+            // 
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "I_DESCRIPTION";
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.White;
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle70;
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.Name = "iDESCRIPTIONDataGridViewTextBoxColumn";
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDESCRIPTIONDataGridViewTextBoxColumn.Width = 136;
+            // 
+            // iPRICEDataGridViewTextBoxColumn
+            // 
+            this.iPRICEDataGridViewTextBoxColumn.DataPropertyName = "I_PRICE";
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.Color.White;
+            this.iPRICEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle71;
+            this.iPRICEDataGridViewTextBoxColumn.HeaderText = "Ціна";
+            this.iPRICEDataGridViewTextBoxColumn.Name = "iPRICEDataGridViewTextBoxColumn";
+            this.iPRICEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iPRICEDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // ColumnButton
+            // 
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.Color.White;
+            this.ColumnButton.DefaultCellStyle = dataGridViewCellStyle72;
+            this.ColumnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnButton.HeaderText = "";
+            this.ColumnButton.Name = "ColumnButton";
+            this.ColumnButton.ReadOnly = true;
+            this.ColumnButton.Text = "Фото";
+            this.ColumnButton.UseColumnTextForButtonValue = true;
+            this.ColumnButton.Width = 80;
+            // 
+            // iIMAGEDataGridViewTextBoxColumn
+            // 
+            this.iIMAGEDataGridViewTextBoxColumn.DataPropertyName = "I_IMAGE";
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.Color.White;
+            this.iIMAGEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle73;
+            this.iIMAGEDataGridViewTextBoxColumn.HeaderText = "Зображення";
+            this.iIMAGEDataGridViewTextBoxColumn.Name = "iIMAGEDataGridViewTextBoxColumn";
+            this.iIMAGEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iIMAGEDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // hISTORYLINESDataGridViewTextBoxColumn1
+            // 
+            this.hISTORYLINESDataGridViewTextBoxColumn1.DataPropertyName = "HISTORY_LINES";
+            this.hISTORYLINESDataGridViewTextBoxColumn1.HeaderText = "HISTORY_LINES";
+            this.hISTORYLINESDataGridViewTextBoxColumn1.Name = "hISTORYLINESDataGridViewTextBoxColumn1";
+            this.hISTORYLINESDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.hISTORYLINESDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // iMAGESDataGridViewTextBoxColumn
+            // 
+            this.iMAGESDataGridViewTextBoxColumn.DataPropertyName = "IMAGES";
+            this.iMAGESDataGridViewTextBoxColumn.HeaderText = "IMAGES";
+            this.iMAGESDataGridViewTextBoxColumn.Name = "iMAGESDataGridViewTextBoxColumn";
+            this.iMAGESDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iMAGESDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // oRDERLINESDataGridViewTextBoxColumn1
+            // 
+            this.oRDERLINESDataGridViewTextBoxColumn1.DataPropertyName = "ORDER_LINES";
+            this.oRDERLINESDataGridViewTextBoxColumn1.HeaderText = "ORDER_LINES";
+            this.oRDERLINESDataGridViewTextBoxColumn1.Name = "oRDERLINESDataGridViewTextBoxColumn1";
+            this.oRDERLINESDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.oRDERLINESDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // iIDDataGridViewTextBoxColumn
+            // 
+            this.iIDDataGridViewTextBoxColumn.DataPropertyName = "I_ID";
+            this.iIDDataGridViewTextBoxColumn.HeaderText = "I_ID";
+            this.iIDDataGridViewTextBoxColumn.Name = "iIDDataGridViewTextBoxColumn";
+            this.iIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // iTEMSBindingSource
             // 
@@ -580,6 +706,7 @@
             this.dataGridViewRestaurants.DataSource = this.sTORESBindingSource;
             this.dataGridViewRestaurants.GridColor = System.Drawing.Color.White;
             this.dataGridViewRestaurants.Location = new System.Drawing.Point(6, 66);
+            this.dataGridViewRestaurants.MultiSelect = false;
             this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
             this.dataGridViewRestaurants.ReadOnly = true;
             this.dataGridViewRestaurants.RowHeadersVisible = false;
@@ -590,9 +717,9 @@
             // sIDDataGridViewTextBoxColumn
             // 
             this.sIDDataGridViewTextBoxColumn.DataPropertyName = "S_ID";
-            dataGridViewCellStyle98.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle98.SelectionForeColor = System.Drawing.Color.White;
-            this.sIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.Color.White;
+            this.sIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle83;
             this.sIDDataGridViewTextBoxColumn.HeaderText = "#";
             this.sIDDataGridViewTextBoxColumn.Name = "sIDDataGridViewTextBoxColumn";
             this.sIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -601,9 +728,9 @@
             // sCITYDataGridViewTextBoxColumn
             // 
             this.sCITYDataGridViewTextBoxColumn.DataPropertyName = "S_CITY";
-            dataGridViewCellStyle99.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle99.SelectionForeColor = System.Drawing.Color.White;
-            this.sCITYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle84.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle84.SelectionForeColor = System.Drawing.Color.White;
+            this.sCITYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle84;
             this.sCITYDataGridViewTextBoxColumn.HeaderText = "Місто";
             this.sCITYDataGridViewTextBoxColumn.Name = "sCITYDataGridViewTextBoxColumn";
             this.sCITYDataGridViewTextBoxColumn.ReadOnly = true;
@@ -612,9 +739,9 @@
             // sADDRESSDataGridViewTextBoxColumn
             // 
             this.sADDRESSDataGridViewTextBoxColumn.DataPropertyName = "S_ADDRESS";
-            dataGridViewCellStyle100.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle100.SelectionForeColor = System.Drawing.Color.White;
-            this.sADDRESSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.Color.White;
+            this.sADDRESSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle85;
             this.sADDRESSDataGridViewTextBoxColumn.HeaderText = "Адреса";
             this.sADDRESSDataGridViewTextBoxColumn.Name = "sADDRESSDataGridViewTextBoxColumn";
             this.sADDRESSDataGridViewTextBoxColumn.ReadOnly = true;
@@ -625,6 +752,7 @@
             this.oRDERHEADERSDataGridViewTextBoxColumn.DataPropertyName = "ORDER_HEADERS";
             this.oRDERHEADERSDataGridViewTextBoxColumn.HeaderText = "ORDER_HEADERS";
             this.oRDERHEADERSDataGridViewTextBoxColumn.Name = "oRDERHEADERSDataGridViewTextBoxColumn";
+            this.oRDERHEADERSDataGridViewTextBoxColumn.ReadOnly = true;
             this.oRDERHEADERSDataGridViewTextBoxColumn.Visible = false;
             // 
             // sTORESBindingSource
@@ -673,6 +801,7 @@
             this.dataGridViewUsers.DataSource = this.uSERSBindingSource;
             this.dataGridViewUsers.GridColor = System.Drawing.Color.White;
             this.dataGridViewUsers.Location = new System.Drawing.Point(6, 66);
+            this.dataGridViewUsers.MultiSelect = false;
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.RowHeadersVisible = false;
@@ -683,10 +812,10 @@
             // uLOGINDataGridViewTextBoxColumn
             // 
             this.uLOGINDataGridViewTextBoxColumn.DataPropertyName = "U_LOGIN";
-            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle101.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle101.SelectionForeColor = System.Drawing.Color.White;
-            this.uLOGINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle101;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.Color.White;
+            this.uLOGINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle86;
             this.uLOGINDataGridViewTextBoxColumn.HeaderText = "Логін";
             this.uLOGINDataGridViewTextBoxColumn.Name = "uLOGINDataGridViewTextBoxColumn";
             this.uLOGINDataGridViewTextBoxColumn.ReadOnly = true;
@@ -695,10 +824,10 @@
             // uPASSWORDDataGridViewTextBoxColumn
             // 
             this.uPASSWORDDataGridViewTextBoxColumn.DataPropertyName = "U_PASSWORD";
-            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle102.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle102.SelectionForeColor = System.Drawing.Color.White;
-            this.uPASSWORDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle102;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.Color.White;
+            this.uPASSWORDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle87;
             this.uPASSWORDDataGridViewTextBoxColumn.HeaderText = "Пароль";
             this.uPASSWORDDataGridViewTextBoxColumn.Name = "uPASSWORDDataGridViewTextBoxColumn";
             this.uPASSWORDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -707,10 +836,10 @@
             // uMODIFIERDataGridViewTextBoxColumn
             // 
             this.uMODIFIERDataGridViewTextBoxColumn.DataPropertyName = "U_MODIFIER";
-            dataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle103.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle103.SelectionForeColor = System.Drawing.Color.White;
-            this.uMODIFIERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle103;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.Color.White;
+            this.uMODIFIERDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle88;
             this.uMODIFIERDataGridViewTextBoxColumn.HeaderText = "Права";
             this.uMODIFIERDataGridViewTextBoxColumn.Name = "uMODIFIERDataGridViewTextBoxColumn";
             this.uMODIFIERDataGridViewTextBoxColumn.ReadOnly = true;
@@ -736,121 +865,19 @@
             // 
             this.uSERSBindingSource.DataSource = typeof(PizzaServiceDataEF.USERS);
             // 
-            // iNAMEDataGridViewTextBoxColumn
+            // buttonBack
             // 
-            this.iNAMEDataGridViewTextBoxColumn.DataPropertyName = "I_NAME";
-            dataGridViewCellStyle104.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle104.SelectionForeColor = System.Drawing.Color.White;
-            this.iNAMEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle104;
-            this.iNAMEDataGridViewTextBoxColumn.HeaderText = "Назва";
-            this.iNAMEDataGridViewTextBoxColumn.Name = "iNAMEDataGridViewTextBoxColumn";
-            this.iNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iNAMEDataGridViewTextBoxColumn.Width = 225;
-            // 
-            // iCATEGORYDataGridViewTextBoxColumn
-            // 
-            this.iCATEGORYDataGridViewTextBoxColumn.DataPropertyName = "I_CATEGORY";
-            dataGridViewCellStyle105.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle105.SelectionForeColor = System.Drawing.Color.White;
-            this.iCATEGORYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle105;
-            this.iCATEGORYDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iCATEGORYDataGridViewTextBoxColumn.HeaderText = "Категорія";
-            this.iCATEGORYDataGridViewTextBoxColumn.Items.AddRange(new object[] {
-            "Піца",
-            "Напій",
-            "Десерт",
-            "Сайди"});
-            this.iCATEGORYDataGridViewTextBoxColumn.Name = "iCATEGORYDataGridViewTextBoxColumn";
-            this.iCATEGORYDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iCATEGORYDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iCATEGORYDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.iCATEGORYDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // iSIZEDataGridViewTextBoxColumn
-            // 
-            this.iSIZEDataGridViewTextBoxColumn.DataPropertyName = "I_SIZE";
-            dataGridViewCellStyle106.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle106.SelectionForeColor = System.Drawing.Color.White;
-            this.iSIZEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle106;
-            this.iSIZEDataGridViewTextBoxColumn.HeaderText = "Розмір";
-            this.iSIZEDataGridViewTextBoxColumn.Name = "iSIZEDataGridViewTextBoxColumn";
-            this.iSIZEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iSIZEDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // iDESCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "I_DESCRIPTION";
-            dataGridViewCellStyle107.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle107.SelectionForeColor = System.Drawing.Color.White;
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle107;
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "Опис";
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.Name = "iDESCRIPTIONDataGridViewTextBoxColumn";
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDESCRIPTIONDataGridViewTextBoxColumn.Width = 136;
-            // 
-            // iPRICEDataGridViewTextBoxColumn
-            // 
-            this.iPRICEDataGridViewTextBoxColumn.DataPropertyName = "I_PRICE";
-            dataGridViewCellStyle108.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle108.SelectionForeColor = System.Drawing.Color.White;
-            this.iPRICEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle108;
-            this.iPRICEDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.iPRICEDataGridViewTextBoxColumn.Name = "iPRICEDataGridViewTextBoxColumn";
-            this.iPRICEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iPRICEDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // ColumnButton
-            // 
-            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle109.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle109.SelectionForeColor = System.Drawing.Color.White;
-            this.ColumnButton.DefaultCellStyle = dataGridViewCellStyle109;
-            this.ColumnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnButton.HeaderText = "";
-            this.ColumnButton.Name = "ColumnButton";
-            this.ColumnButton.ReadOnly = true;
-            this.ColumnButton.Text = "Фото";
-            this.ColumnButton.UseColumnTextForButtonValue = true;
-            this.ColumnButton.Width = 80;
-            // 
-            // iIMAGEDataGridViewTextBoxColumn
-            // 
-            this.iIMAGEDataGridViewTextBoxColumn.DataPropertyName = "I_IMAGE";
-            dataGridViewCellStyle110.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle110.SelectionForeColor = System.Drawing.Color.White;
-            this.iIMAGEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle110;
-            this.iIMAGEDataGridViewTextBoxColumn.HeaderText = "Зображення";
-            this.iIMAGEDataGridViewTextBoxColumn.Name = "iIMAGEDataGridViewTextBoxColumn";
-            this.iIMAGEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iIMAGEDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // hISTORYLINESDataGridViewTextBoxColumn1
-            // 
-            this.hISTORYLINESDataGridViewTextBoxColumn1.DataPropertyName = "HISTORY_LINES";
-            this.hISTORYLINESDataGridViewTextBoxColumn1.HeaderText = "HISTORY_LINES";
-            this.hISTORYLINESDataGridViewTextBoxColumn1.Name = "hISTORYLINESDataGridViewTextBoxColumn1";
-            this.hISTORYLINESDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // iMAGESDataGridViewTextBoxColumn
-            // 
-            this.iMAGESDataGridViewTextBoxColumn.DataPropertyName = "IMAGES";
-            this.iMAGESDataGridViewTextBoxColumn.HeaderText = "IMAGES";
-            this.iMAGESDataGridViewTextBoxColumn.Name = "iMAGESDataGridViewTextBoxColumn";
-            this.iMAGESDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // oRDERLINESDataGridViewTextBoxColumn1
-            // 
-            this.oRDERLINESDataGridViewTextBoxColumn1.DataPropertyName = "ORDER_LINES";
-            this.oRDERLINESDataGridViewTextBoxColumn1.HeaderText = "ORDER_LINES";
-            this.oRDERLINESDataGridViewTextBoxColumn1.Name = "oRDERLINESDataGridViewTextBoxColumn1";
-            this.oRDERLINESDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // iIDDataGridViewTextBoxColumn
-            // 
-            this.iIDDataGridViewTextBoxColumn.DataPropertyName = "I_ID";
-            this.iIDDataGridViewTextBoxColumn.HeaderText = "I_ID";
-            this.iIDDataGridViewTextBoxColumn.Name = "iIDDataGridViewTextBoxColumn";
-            this.iIDDataGridViewTextBoxColumn.Visible = false;
+            this.buttonBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(46)))), ((int)(((byte)(199)))));
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonBack.ForeColor = System.Drawing.Color.White;
+            this.buttonBack.Location = new System.Drawing.Point(553, 15);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(109, 35);
+            this.buttonBack.TabIndex = 4;
+            this.buttonBack.Text = "Показати все";
+            this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // FormAdministration
             // 
@@ -950,5 +977,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iMAGESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oRDERLINESDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonBack;
     }
 }
