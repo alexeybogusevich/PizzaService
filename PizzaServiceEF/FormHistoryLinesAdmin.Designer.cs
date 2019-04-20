@@ -32,15 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistoryLinesAdmin));
             this.dataGridViewLines = new System.Windows.Forms.DataGridView();
-            this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.oRDERLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oLITEMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oLQUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iTEMSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERHEADERSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oLORDERHEADERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oRDERLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oRDERLINESBindingSource)).BeginInit();
@@ -76,14 +77,6 @@
             this.dataGridViewLines.TabIndex = 0;
             this.dataGridViewLines.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewLines_DataError);
             // 
-            // iTEMSBindingSource
-            // 
-            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
-            // 
-            // oRDERLINESBindingSource
-            // 
-            this.oRDERLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.ORDER_LINES);
-            // 
             // oLITEMDataGridViewTextBoxColumn
             // 
             this.oLITEMDataGridViewTextBoxColumn.DataPropertyName = "OL_ITEM";
@@ -101,6 +94,10 @@
             this.oLITEMDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.oLITEMDataGridViewTextBoxColumn.ValueMember = "I_ID";
             this.oLITEMDataGridViewTextBoxColumn.Width = 260;
+            // 
+            // iTEMSBindingSource
+            // 
+            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
             // 
             // oLQUANTITYDataGridViewTextBoxColumn
             // 
@@ -140,6 +137,10 @@
             this.oLORDERHEADERDataGridViewTextBoxColumn.Name = "oLORDERHEADERDataGridViewTextBoxColumn";
             this.oLORDERHEADERDataGridViewTextBoxColumn.Visible = false;
             // 
+            // oRDERLINESBindingSource
+            // 
+            this.oRDERLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.ORDER_LINES);
+            // 
             // FormHistoryLinesAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +149,7 @@
             this.ClientSize = new System.Drawing.Size(384, 211);
             this.Controls.Add(this.dataGridViewLines);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "FormHistoryLinesAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

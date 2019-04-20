@@ -24,8 +24,8 @@
         <AssociationConnector Association="PizzaServiceModel.FK_ORDER_LINES_ORDER_HEADERS1" />
         <EntityTypeShape EntityType="PizzaServiceModel.USERS" Width="1.5" PointX="7.5" PointY="2.625" />
         <AssociationConnector Association="PizzaServiceModel.FK_CUSTOMERS_USERS" />
-        <EntityTypeShape EntityType="PizzaServiceModel.REVIEWS" Width="1.5" PointX="9.125" PointY="3" />
-        <AssociationConnector Association="PizzaServiceModel.FK_REVIEWS_USERS" />
+        <EntityTypeShape EntityType="PizzaServiceModel.REVIEWS" Width="1.5" PointX="9.125" PointY="2.5" />
+        <AssociationConnector Association="PizzaServiceModel.FK_REVIEWS_CUSTOMERS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

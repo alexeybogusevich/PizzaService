@@ -80,7 +80,7 @@
             <PropertyRef Name="R_ID" />
           </Key>
           <Property Name="R_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="R_USERID" Type="int" Nullable="false" />
+          <Property Name="R_CUSTOMERID" Type="int" Nullable="false" />
           <Property Name="R_TEXT" Type="text" Nullable="false" />
           <Property Name="R_DATE" Type="datetime" Nullable="false" />
         </EntityType>
@@ -218,15 +218,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_REVIEWS_USERS">
-          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+        <Association Name="FK_REVIEWS_CUSTOMERS">
+          <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
           <End Role="REVIEWS" Type="Self.REVIEWS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="USERS">
-              <PropertyRef Name="U_ID" />
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="C_ID" />
             </Principal>
             <Dependent Role="REVIEWS">
-              <PropertyRef Name="R_USERID" />
+              <PropertyRef Name="R_CUSTOMERID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -278,8 +278,8 @@
             <End Role="ORDER_HEADERS" EntitySet="ORDER_HEADERS" />
             <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
           </AssociationSet>
-          <AssociationSet Name="FK_REVIEWS_USERS" Association="Self.FK_REVIEWS_USERS">
-            <End Role="USERS" EntitySet="USERS" />
+          <AssociationSet Name="FK_REVIEWS_CUSTOMERS" Association="Self.FK_REVIEWS_CUSTOMERS">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
             <End Role="REVIEWS" EntitySet="REVIEWS" />
           </AssociationSet>
         </EntityContainer>
@@ -298,6 +298,7 @@
           <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_CUSTOMERS" FromRole="CUSTOMERS" ToRole="ORDER_HEADERS" />
           <Property Name="C_USERID" Type="Int32" />
           <NavigationProperty Name="USERS" Relationship="PizzaServiceModel.FK_CUSTOMERS_USERS" FromRole="CUSTOMERS" ToRole="USERS" />
+          <NavigationProperty Name="REVIEWS" Relationship="PizzaServiceModel.FK_REVIEWS_CUSTOMERS" FromRole="CUSTOMERS" ToRole="REVIEWS" />
         </EntityType>
         <EntityType Name="HISTORY_HEADERS">
           <Key>
@@ -523,8 +524,8 @@
             <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
           </AssociationSet>
           <EntitySet Name="REVIEWS" EntityType="PizzaServiceModel.REVIEWS" />
-          <AssociationSet Name="FK_REVIEWS_USERS" Association="PizzaServiceModel.FK_REVIEWS_USERS">
-            <End Role="USERS" EntitySet="USERS" />
+          <AssociationSet Name="FK_REVIEWS_CUSTOMERS" Association="PizzaServiceModel.FK_REVIEWS_CUSTOMERS">
+            <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
             <End Role="REVIEWS" EntitySet="REVIEWS" />
           </AssociationSet>
         </EntityContainer>
@@ -549,7 +550,6 @@
           <Property Name="U_PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="U_MODIFIER" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="CUSTOMERS" Relationship="PizzaServiceModel.FK_CUSTOMERS_USERS" FromRole="USERS" ToRole="CUSTOMERS" />
-          <NavigationProperty Name="REVIEWS" Relationship="PizzaServiceModel.FK_REVIEWS_USERS" FromRole="USERS" ToRole="REVIEWS" />
         </EntityType>
         <Association Name="FK_CUSTOMERS_USERS">
           <End Type="PizzaServiceModel.USERS" Role="USERS" Multiplicity="0..1" />
@@ -568,20 +568,20 @@
             <PropertyRef Name="R_ID" />
           </Key>
           <Property Name="R_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="R_USERID" Type="Int32" Nullable="false" />
           <Property Name="R_TEXT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="USERS" Relationship="PizzaServiceModel.FK_REVIEWS_USERS" FromRole="REVIEWS" ToRole="USERS" />
           <Property Name="R_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="R_CUSTOMERID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMERS" Relationship="PizzaServiceModel.FK_REVIEWS_CUSTOMERS" FromRole="REVIEWS" ToRole="CUSTOMERS" />
         </EntityType>
-        <Association Name="FK_REVIEWS_USERS">
-          <End Type="PizzaServiceModel.USERS" Role="USERS" Multiplicity="1" />
+        <Association Name="FK_REVIEWS_CUSTOMERS">
+          <End Type="PizzaServiceModel.CUSTOMERS" Role="CUSTOMERS" Multiplicity="1" />
           <End Type="PizzaServiceModel.REVIEWS" Role="REVIEWS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="USERS">
-              <PropertyRef Name="U_ID" />
+            <Principal Role="CUSTOMERS">
+              <PropertyRef Name="C_ID" />
             </Principal>
             <Dependent Role="REVIEWS">
-              <PropertyRef Name="R_USERID" />
+              <PropertyRef Name="R_CUSTOMERID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -700,9 +700,9 @@
           <EntitySetMapping Name="REVIEWS">
             <EntityTypeMapping TypeName="PizzaServiceModel.REVIEWS">
               <MappingFragment StoreEntitySet="REVIEWS">
+                <ScalarProperty Name="R_CUSTOMERID" ColumnName="R_CUSTOMERID" />
                 <ScalarProperty Name="R_DATE" ColumnName="R_DATE" />
                 <ScalarProperty Name="R_TEXT" ColumnName="R_TEXT" />
-                <ScalarProperty Name="R_USERID" ColumnName="R_USERID" />
                 <ScalarProperty Name="R_ID" ColumnName="R_ID" />
               </MappingFragment>
             </EntityTypeMapping>

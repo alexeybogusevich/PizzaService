@@ -157,7 +157,26 @@ namespace PizzaServiceEF
 
         private void buttonComment_Click(object sender, EventArgs e)
         {
-            //
+            if (!authorized)
+            {
+                MessageBox.Show("Увійдіть в систему!");
+                return;
+            }
+
+            var customer_id = (from c in ctx.CUSTOMERS
+                               where c.C_USERID == user_id
+                               select c).First();
+
+            FormReviews formReviews = new FormReviews(customer_id.C_ID);
+            formReviews.ShowDialog(this);
+            formReviews.Dispose();
+        }
+
+        private void buttonRestaurants_Click(object sender, EventArgs e)
+        {
+            FormMaps formMaps = new FormMaps();
+            formMaps.ShowDialog(this);
+            formMaps.Dispose();
         }
     }
 }

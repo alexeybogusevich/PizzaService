@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistoryOrderSelected));
             this.dataGridViewHistoryLines = new System.Windows.Forms.DataGridView();
-            this.hISTORYLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hLITEMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.iTEMSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hLQUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hISTORYHEADERSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iTEMSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hLORDERHEADERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hISTORYLINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonRepeat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistoryLines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORYLINESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hISTORYLINESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewHistoryLines
@@ -70,14 +71,6 @@
             this.dataGridViewHistoryLines.TabIndex = 0;
             this.dataGridViewHistoryLines.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewHistoryLines_DataError);
             // 
-            // hISTORYLINESBindingSource
-            // 
-            this.hISTORYLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.HISTORY_LINES);
-            // 
-            // iTEMSBindingSource
-            // 
-            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
-            // 
             // hLITEMDataGridViewTextBoxColumn
             // 
             this.hLITEMDataGridViewTextBoxColumn.DataPropertyName = "HL_ITEM";
@@ -91,6 +84,10 @@
             this.hLITEMDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.hLITEMDataGridViewTextBoxColumn.ValueMember = "I_ID";
             this.hLITEMDataGridViewTextBoxColumn.Width = 277;
+            // 
+            // iTEMSBindingSource
+            // 
+            this.iTEMSBindingSource.DataSource = typeof(PizzaServiceDataEF.ITEMS);
             // 
             // hLQUANTITYDataGridViewTextBoxColumn
             // 
@@ -128,6 +125,10 @@
             this.hLIDDataGridViewTextBoxColumn.Visible = false;
             this.hLIDDataGridViewTextBoxColumn.Width = 35;
             // 
+            // hISTORYLINESBindingSource
+            // 
+            this.hISTORYLINESBindingSource.DataSource = typeof(PizzaServiceDataEF.HISTORY_LINES);
+            // 
             // buttonRepeat
             // 
             this.buttonRepeat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -152,14 +153,15 @@
             this.Controls.Add(this.dataGridViewHistoryLines);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "FormHistoryOrderSelected";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Деталі замовлення";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistoryLines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORYLINESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hISTORYLINESBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

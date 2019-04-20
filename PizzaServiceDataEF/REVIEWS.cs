@@ -15,10 +15,10 @@ namespace PizzaServiceDataEF
     public partial class REVIEWS
     {
         public int R_ID { get; set; }
-        public int R_USERID { get; set; }
         public string R_TEXT { get; set; }
         public System.DateTime R_DATE { get; set; }
+        public int R_CUSTOMERID { get; set; }
     
-        public virtual USERS USERS { get; set; }
+        public virtual CUSTOMERS CUSTOMERS { get; set; }
     }
 }

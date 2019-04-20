@@ -68,6 +68,7 @@
             this.buttonRestaurants.TabIndex = 1;
             this.buttonRestaurants.Text = "Ресторани";
             this.buttonRestaurants.UseVisualStyleBackColor = false;
+            this.buttonRestaurants.Click += new System.EventHandler(this.buttonRestaurants_Click);
             // 
             // buttonComment
             // 

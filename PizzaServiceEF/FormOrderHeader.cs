@@ -149,8 +149,21 @@ namespace PizzaServiceEF
             }
 
             finished = true;
-
+            
             MessageBox.Show("Дякуємо за покупку! \nОчікуйте СМС-повідомлення.");
+
+            //https://control.txtlocal.co.uk/settings/apikeys/
+            //login : a...g...e@gmail.com, password : Alexey99
+            //settings -> API -> Create New API
+
+            string apiKey = "yjNT3kjpc8o-ApVf7I4ZU4dVvA4ILFkqOb67eJvr9s	";
+            string number = "+38"+customer.C_PHONE;
+            string message = "Hello, it's Dominos! Your order #" + header.OH_ID + " will be delievered in an hour.";
+                //"Замовлення №" + header.OH_ID + " буде доставлено протягом години. ";
+
+            sendSMS sms = new sendSMS();
+            string result = sms.sendMessage(apiKey, number, message);
+            MessageBox.Show(result);
 
             this.Close();
         }

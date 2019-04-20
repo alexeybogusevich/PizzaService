@@ -18,6 +18,7 @@ namespace PizzaServiceDataEF
         public CUSTOMERS()
         {
             this.ORDER_HEADERS = new HashSet<ORDER_HEADERS>();
+            this.REVIEWS = new HashSet<REVIEWS>();
         }
     
         public int C_ID { get; set; }
@@ -29,5 +30,7 @@ namespace PizzaServiceDataEF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_HEADERS> ORDER_HEADERS { get; set; }
         public virtual USERS USERS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REVIEWS> REVIEWS { get; set; }
     }
 }

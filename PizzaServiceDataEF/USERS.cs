@@ -18,7 +18,6 @@ namespace PizzaServiceDataEF
         public USERS()
         {
             this.CUSTOMERS = new HashSet<CUSTOMERS>();
-            this.REVIEWS = new HashSet<REVIEWS>();
         }
     
         public int U_ID { get; set; }
@@ -28,7 +27,5 @@ namespace PizzaServiceDataEF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CUSTOMERS> CUSTOMERS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REVIEWS> REVIEWS { get; set; }
     }
 }
