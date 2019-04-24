@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +40,12 @@ namespace PizzaServiceEF
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
+            if(!CheckConnection())
+            {
+                MessageBox.Show("Ваш пристрій не підключено до мережі Інтернет! \nАвтономний режим недоступний.", "Увага");
+                return;
+            }
+
             FormAuthorizarion authorization = new FormAuthorizarion();
             authorization.ShowDialog(this);
             if (authorization.authorized)
@@ -48,6 +55,23 @@ namespace PizzaServiceEF
                 CustomizePage();
             }
             authorization.Dispose();
+        }
+
+        private bool CheckConnection()
+        {
+            WebClient client = new WebClient();
+            try
+            {
+                using (client.OpenRead("http://google.com"))
+                {
+
+                }
+                return true;
+            }
+            catch(WebException)
+            {
+                return false;
+            }
         }
 
         private void CustomizePage()
@@ -174,6 +198,11 @@ namespace PizzaServiceEF
 
         private void buttonRestaurants_Click(object sender, EventArgs e)
         {
+            if (!authorized)
+            {
+                MessageBox.Show("Увійдіть в систему!");
+                return;
+            }
             FormMaps formMaps = new FormMaps();
             formMaps.ShowDialog(this);
             formMaps.Dispose();

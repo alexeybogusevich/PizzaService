@@ -91,6 +91,8 @@
           <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="S_ADDRESS" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="S_CITY" Type="nchar" MaxLength="30" />
+          <Property Name="S_LATITUDE" Type="float" />
+          <Property Name="S_LONGITUDE" Type="float" />
         </EntityType>
         <EntityType Name="TRANSACTIONS">
           <Key>
@@ -381,6 +383,8 @@
           <Property Name="S_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ORDER_HEADERS" Relationship="Self.FK_ORDER_HEADERS_STORES" FromRole="STORES" ToRole="ORDER_HEADERS" />
           <Property Name="S_CITY" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="S_LATITUDE" Type="Double" />
+          <Property Name="S_LONGITUDE" Type="Double" />
         </EntityType>
         <EntityType Name="TRANSACTIONS">
           <Key>
@@ -671,6 +675,8 @@
           <EntitySetMapping Name="STORES">
             <EntityTypeMapping TypeName="PizzaServiceModel.STORES">
               <MappingFragment StoreEntitySet="STORES">
+                <ScalarProperty Name="S_LONGITUDE" ColumnName="S_LONGITUDE" />
+                <ScalarProperty Name="S_LATITUDE" ColumnName="S_LATITUDE" />
                 <ScalarProperty Name="S_CITY" ColumnName="S_CITY" />
                 <ScalarProperty Name="S_ID" ColumnName="S_ID" />
                 <ScalarProperty Name="S_ADDRESS" ColumnName="S_ADDRESS" />

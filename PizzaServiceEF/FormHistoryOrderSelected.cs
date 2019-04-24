@@ -58,10 +58,10 @@ namespace PizzaServiceEF
 
                 sum += (double)item.I_PRICE * x.OL_QUANTITY;
 
-                orderLines.Add(x.OL_ID);
-
                 ctx.ORDER_LINES.Add(x);
                 ctx.SaveChanges();
+
+                orderLines.Add(x.OL_ID);
             }
 
             FormOrderHeader orderHeader = new FormOrderHeader(orderLines, user_id, sum);

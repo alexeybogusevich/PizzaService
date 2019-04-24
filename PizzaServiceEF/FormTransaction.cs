@@ -207,5 +207,37 @@ namespace PizzaServiceEF
                 e.KeyChar = '\0';
             }
         }
+
+        private void textBoxCard1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxCard1.Text.Length == 4)
+            {
+                textBoxCard2.Focus();
+            }
+        }
+
+        private void textBoxCard2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxCard2.Text.Length == 4)
+            {
+                textBoxCard3.Focus();
+            }
+        }
+
+        private void textBoxCard3_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxCard3.Text.Length == 4)
+            {
+                textBoxCard4.Focus();
+            }
+        }
+
+        private void textBoxCard4_TextChanged(object sender, EventArgs e)
+        {
+            //if (textBoxCard4.Text.Length == 4)
+            //{
+            //    comboBoxMonth.Focus();
+            //}
+        }
     }
 }

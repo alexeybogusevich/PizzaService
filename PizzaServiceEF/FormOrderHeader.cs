@@ -1,4 +1,7 @@
-﻿using PizzaServiceDataEF;
+﻿using Geocoding;
+using Geocoding.Google;
+using GMap.NET.MapProviders;
+using PizzaServiceDataEF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,7 +68,7 @@ namespace PizzaServiceEF
             }
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private async void buttonOK_Click(object sender, EventArgs e)
         {
             if (comboBoxPayment.Text == null || textBoxHouse.Text == null ||
                 textBoxApp.Text == null || textBoxCity.Text == null ||
@@ -86,6 +89,7 @@ namespace PizzaServiceEF
                 return;
             }
 
+            string address = textBoxCity.Text + ", вул. " + textBoxStreet.Text + " " + textBoxHouse.Text + " кв." + textBoxApp.Text;
 
             var customer = (from c in ctx.CUSTOMERS
                             where c.C_USERID == user
@@ -94,8 +98,8 @@ namespace PizzaServiceEF
             var header = new ORDER_HEADERS
             {
                 OH_CUSTOMER = customer.C_ID,
-                OH_ADDRESS = textBoxCity.Text + ", вул. " + textBoxStreet.Text + " " + textBoxHouse.Text + " кв." + textBoxApp.Text,
-                OH_STORE = 1, //////////////////////////////////////////////////////////////////////////
+                OH_ADDRESS = address,
+                OH_STORE = 1, ////////
                 OH_DATE = System.DateTime.Now,
                 OH_SUM = sum
             };
@@ -123,6 +127,26 @@ namespace PizzaServiceEF
                 }
                 transaction.Dispose();
             }
+
+            LoadingWindow loadingWindow = new LoadingWindow();
+            loadingWindow.Show();
+
+            int store_id = await GetNearestStore(address);
+
+            var storeOH = (from s in ctx.STORES
+                           where s.S_ID == store_id
+                           select s).First();
+
+            loadingWindow.Close();
+
+            MessageBox.Show("Замовлення буде виконано з ресторану за адресою: \n" + storeOH.S_CITY.Trim()
+                + ", " + storeOH.S_ADDRESS);
+
+            //FormMaps maps = new FormMaps(store_id, address);
+            //maps.ShowDialog(this);
+            //maps.Dispose();
+
+            header.OH_STORE = store_id;
 
             ctx.ORDER_HEADERS.Add(header);
             ctx.SaveChanges();
@@ -156,16 +180,62 @@ namespace PizzaServiceEF
             //login : a...g...e@gmail.com, password : Alexey99
             //settings -> API -> Create New API
 
-            string apiKey = "yjNT3kjpc8o-ApVf7I4ZU4dVvA4ILFkqOb67eJvr9s	";
+            string apiKey = "mr2qeyzg4M8-ByFIpOBcLBaw7FN3iqwc17kT2YMwwa";
             string number = "+38"+customer.C_PHONE;
             string message = "Hello, it's Dominos! Your order #" + header.OH_ID + " will be delievered in an hour.";
                 //"Замовлення №" + header.OH_ID + " буде доставлено протягом години. ";
 
             sendSMS sms = new sendSMS();
             string result = sms.sendMessage(apiKey, number, message);
-            MessageBox.Show(result);
+            //MessageBox.Show(result);
 
             this.Close();
+        }
+
+        private async Task<int> GetNearestStore(string address)
+        {
+            var stores = (from s in ctx.STORES
+                          select s);
+            double minDistance = double.MaxValue;
+            int minId = stores.First().S_ID;
+
+            (double customersLatitude, double customersLongitude) = await LocationFromAddress(address);
+
+            GMap.NET.PointLatLng customersPoint = new GMap.NET.PointLatLng();
+            customersPoint.Lat = customersLatitude;
+            customersPoint.Lng = customersLongitude;
+
+            foreach (var store in stores)
+            {
+                string storeAddress = store.S_CITY.Trim() + ", " + store.S_ADDRESS;
+
+                (double storeLatitude, double storeLongitude) = await LocationFromAddress(storeAddress);
+
+                GMap.NET.PointLatLng storePoint = new GMap.NET.PointLatLng();
+                storePoint.Lat = (double)store.S_LATITUDE;
+                storePoint.Lng = (double)store.S_LONGITUDE;
+
+                //var route = GoogleMapProvider.Instance.GetRoute(storePoint, customersPoint, false, false, 14);
+
+                double distance = Math.Sqrt(Math.Pow(Math.Abs(storePoint.Lat - customersPoint.Lat), 2)
+                    + (Math.Pow(Math.Abs(storePoint.Lng - customersPoint.Lng), 2)));
+
+                if(distance < minDistance)
+                {
+                    minDistance = distance;
+                    minId = store.S_ID;
+                }
+            }
+            return minId;
+        }
+
+        private async Task<(double, double)> LocationFromAddress(string address)
+        {
+            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "AIzaSyAUzkbqxdpuDu9x5MyXaayE-eQE4uVcnk8" };
+            IEnumerable<Address> addresses = await geocoder.GeocodeAsync(address);
+            return (addresses.First().Coordinates.Latitude, addresses.First().Coordinates.Longitude);
+            //MessageBox.Show("Formatted: " + addresses.First().FormattedAddress); //Formatted: 1600 Pennsylvania Ave SE, Washington, DC 20003, USA
+            //MessageBox.Show("Coordinates: " + addresses.First().Coordinates.Latitude + ", " + addresses.First().Coordinates.Longitude); //Coordinates: 38.8791981, -76.9818437
         }
 
         private void textBoxApp_KeyDown(object sender, KeyEventArgs e)

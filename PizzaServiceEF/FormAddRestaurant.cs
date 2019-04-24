@@ -1,4 +1,6 @@
-﻿using PizzaServiceDataEF;
+﻿using Geocoding;
+using Geocoding.Google;
+using PizzaServiceDataEF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +40,7 @@ namespace PizzaServiceEF
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private async void buttonAdd_Click(object sender, EventArgs e)
         {
             if(textBoxAddress.Text == null || textBoxAddress.Text == "" ||
                 textBoxCity.Text == null || textBoxAddress.Text == "")
@@ -53,10 +55,22 @@ namespace PizzaServiceEF
                 S_ADDRESS = textBoxAddress.Text
             };
 
+            string address = store.S_CITY + ", " + store.S_ADDRESS;
+            (store.S_LATITUDE, store.S_LONGITUDE) = await LocationFromAddress(address);
+
             ctx.STORES.Add(store);
             ctx.SaveChanges();
 
             this.Close();
+        }
+
+        private async Task<(double, double)> LocationFromAddress(string address)
+        {
+            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "AIzaSyAUzkbqxdpuDu9x5MyXaayE-eQE4uVcnk8" };
+            IEnumerable<Address> addresses = await geocoder.GeocodeAsync(address);
+            //MessageBox.Show("Formatted: " + addresses.First().FormattedAddress); //Formatted: 1600 Pennsylvania Ave SE, Washington, DC 20003, USA
+            //MessageBox.Show("Coordinates: " + addresses.First().Coordinates.Latitude + ", " + addresses.First().Coordinates.Longitude); //Coordinates: 38.8791981, -76.9818437
+            return (addresses.First().Coordinates.Latitude, addresses.First().Coordinates.Longitude);
         }
     }
 }

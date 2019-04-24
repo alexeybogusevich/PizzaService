@@ -50,6 +50,7 @@
             this.textBoxCard1.Name = "textBoxCard1";
             this.textBoxCard1.Size = new System.Drawing.Size(57, 32);
             this.textBoxCard1.TabIndex = 0;
+            this.textBoxCard1.TextChanged += new System.EventHandler(this.textBoxCard1_TextChanged);
             this.textBoxCard1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCard_KeyDown);
             this.textBoxCard1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCard_KeyPress);
             // 
@@ -180,6 +181,7 @@
             this.textBoxCard2.Name = "textBoxCard2";
             this.textBoxCard2.Size = new System.Drawing.Size(57, 32);
             this.textBoxCard2.TabIndex = 10;
+            this.textBoxCard2.TextChanged += new System.EventHandler(this.textBoxCard2_TextChanged);
             this.textBoxCard2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCard2_KeyDown);
             this.textBoxCard2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCard2_KeyPress);
             // 
@@ -191,6 +193,7 @@
             this.textBoxCard3.Name = "textBoxCard3";
             this.textBoxCard3.Size = new System.Drawing.Size(57, 32);
             this.textBoxCard3.TabIndex = 11;
+            this.textBoxCard3.TextChanged += new System.EventHandler(this.textBoxCard3_TextChanged);
             this.textBoxCard3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCard3_KeyDown);
             this.textBoxCard3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCard3_KeyPress);
             // 
@@ -202,6 +205,7 @@
             this.textBoxCard4.Name = "textBoxCard4";
             this.textBoxCard4.Size = new System.Drawing.Size(57, 32);
             this.textBoxCard4.TabIndex = 12;
+            this.textBoxCard4.TextChanged += new System.EventHandler(this.textBoxCard4_TextChanged);
             this.textBoxCard4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCard4_KeyDown);
             this.textBoxCard4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCard4_KeyPress);
             // 

@@ -82,7 +82,7 @@ namespace PizzaServiceEF
             {
                 pictureBoxOK.Visible = true;
                 pictureBoxNotOK.Visible = false;
-                labelModifier.Text = query.First().U_MODIFIER;
+                labelModifier.Text = query.First().U_MODIFIER == "A" ? "A" : " ";
                 labelModifier.Visible = true;
             }
         }
