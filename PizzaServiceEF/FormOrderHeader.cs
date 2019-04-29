@@ -177,10 +177,9 @@ namespace PizzaServiceEF
             MessageBox.Show("Дякуємо за покупку! \nОчікуйте СМС-повідомлення.");
 
             //https://control.txtlocal.co.uk/settings/apikeys/
-            //login : a...g...e@gmail.com, password : Alexey99
             //settings -> API -> Create New API
 
-            string apiKey = "mr2qeyzg4M8-ByFIpOBcLBaw7FN3iqwc17kT2YMwwa";
+            string apiKey = "123abc"; //replace this with your ApiKey
             string number = "+38"+customer.C_PHONE;
             string message = "Hello, it's Dominos! Your order #" + header.OH_ID + " will be delievered in an hour.";
                 //"Замовлення №" + header.OH_ID + " буде доставлено протягом години. ";
@@ -231,7 +230,7 @@ namespace PizzaServiceEF
 
         private async Task<(double, double)> LocationFromAddress(string address)
         {
-            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "AIzaSyAUzkbqxdpuDu9x5MyXaayE-eQE4uVcnk8" };
+            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "123abc" }; //replace this with your apiKey
             IEnumerable<Address> addresses = await geocoder.GeocodeAsync(address);
             return (addresses.First().Coordinates.Latitude, addresses.First().Coordinates.Longitude);
             //MessageBox.Show("Formatted: " + addresses.First().FormattedAddress); //Formatted: 1600 Pennsylvania Ave SE, Washington, DC 20003, USA
