@@ -114,7 +114,7 @@ namespace PizzaServiceEF
 
         private async Task<(double, double)> LocationFromAddress(string address) 
         {
-            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "AIzaSyAUzkbqxdpuDu9x5MyXaayE-eQE4uVcnk8" };
+            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "123abc" }; //replace this with your apiKey
             IEnumerable<Address> addresses = await geocoder.GeocodeAsync(address);
             //MessageBox.Show("Formatted: " + addresses.First().FormattedAddress); //Formatted: 1600 Pennsylvania Ave SE, Washington, DC 20003, USA
             //MessageBox.Show("Coordinates: " + addresses.First().Coordinates.Latitude + ", " + addresses.First().Coordinates.Longitude); //Coordinates: 38.8791981, -76.9818437
